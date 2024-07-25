@@ -1,48 +1,27 @@
-/*
- * To change this license header, choose License Deaners in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package document_tracking_system;
 
-import com.mysql.jdbc.Connection;
-import java.awt.Color;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
-import static java.lang.Thread.sleep;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.ListSelectionModel;
-import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Admin
- */
 public final class Admin extends JFrame {
 
     public Admin(String username) {
         initComponents();
-        ///     autoId();
         clock();
-    //    jButtonDocuments.setEnabled(false);
         jButtonUpdate.setEnabled(false);
         jButtonDelete.setEnabled(false);
         reg();
@@ -52,8 +31,6 @@ public final class Admin extends JFrame {
 
         jTableDocuments.setFont(new java.awt.Font("Tahoma", 0, 12));
         jTableDocuments.setRowHeight(30);
-        //
-        //visend
         jLabel19s.setText(username);
         jLabel24.setText(username);
 
@@ -319,19 +296,19 @@ public final class Admin extends JFrame {
         jPanel6.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel21.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel21.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Arial", 0, 18));
         jLabel21.setForeground(new java.awt.Color(204, 102, 0));
         jLabel21.setText("Admin Page ");
 
         jLabel42.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel42.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel42.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel42.setForeground(new java.awt.Color(51, 51, 51));
         jLabel42.setText("Date");
 
         jLabelTime.setBackground(new java.awt.Color(102, 102, 102));
-        jLabelTime.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabelTime.setFont(new java.awt.Font("Arial", 0, 12));
         jLabelTime.setForeground(new java.awt.Color(51, 51, 51));
-        jLabelTime.setText("December/12/ 2019");
+        jLabelTime.setText("May '23");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -383,11 +360,11 @@ public final class Admin extends JFrame {
         );
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 18));
         jLabel5.setText("Add User'");
 
         jLabel15.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel15.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel15.setText("Password:");
 
         jTextFieldName.addActionListener(new java.awt.event.ActionListener() {
@@ -397,7 +374,7 @@ public final class Admin extends JFrame {
         });
 
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel17.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel17.setText("Firstname:");
 
         jTextFieldUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -407,12 +384,12 @@ public final class Admin extends JFrame {
         });
 
         jLabel20.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel20.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel20.setText("Username:");
 
         jLabel27.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel27.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel27.setText("Confirm_Password:");
+        jLabel27.setFont(new java.awt.Font("Arial", 0, 13));
+        jLabel27.setText("Confirm Password:");
 
         jTextFieldLastname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -421,7 +398,7 @@ public final class Admin extends JFrame {
         });
 
         jLabel28.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel28.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel28.setText("Lastname:");
 
         jComboBoxPermission.addActionListener(new java.awt.event.ActionListener() {
@@ -431,26 +408,22 @@ public final class Admin extends JFrame {
         });
 
         jLabel38.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel38.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel38.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel38.setText("Permission:");
 
         jComboBoxField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Academic", "Administrative", "Research Development and Extension", "College Council" }));
-        jComboBoxField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxFieldActionPerformed(evt);
-            }
-        });
+        jComboBoxField.addActionListener(this::jComboBoxFieldActionPerformed);
 
         jLabel39.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel39.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel39.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel39.setText("Field:");
 
         jLabel41.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel41.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel41.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel41.setText("Position:");
 
         jLabelCourse.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelCourse.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabelCourse.setFont(new java.awt.Font("Arial", 0, 13));
         jLabelCourse.setText("Institute:");
 
         jComboBoxPosition.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -458,11 +431,7 @@ public final class Admin extends JFrame {
                 jComboBoxPositionMouseEntered(evt);
             }
         });
-        jComboBoxPosition.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxPositionActionPerformed(evt);
-            }
-        });
+        jComboBoxPosition.addActionListener(this::jComboBoxPositionActionPerformed);
         jComboBoxPosition.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jComboBoxPositionKeyReleased(evt);
@@ -485,32 +454,24 @@ public final class Admin extends JFrame {
             }
         });
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Davao_Oriental_State_College_of_Science_and_Technology.png"))); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/document_tracking_system/images/newLogo.png"))));
 
-        jLabel31.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel31.setText("The Davao Oriental State University");
+        jLabel31.setFont(new java.awt.Font("Arial", 0, 13));
+        jLabel31.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel31.setText("National Institute of Technology Agartala");
 
-        jLabel43.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel43.setText("is a state university in Mati City, Davao Oriental,");
+//        jLabel43.setFont(new java.awt.Font("Arial", 0, 13));
+//        jLabel43.setForeground(new java.awt.Color(0, 0, 0));
+//        jLabel43.setText("is a national level institute in Agartala, Tripura");
 
-        jButtonSubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/cheek.png"))); // NOI18N
+        jButtonSubmit.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/document_tracking_system/images/cheek.png"))));
         jButtonSubmit.setText("Add");
         jButtonSubmit.setFocusable(false);
-        jButtonSubmit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSubmitActionPerformed(evt);
-            }
-        });
+        jButtonSubmit.addActionListener(this::jButtonSubmitActionPerformed);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Cancel_22px.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/document_tracking_system/images/Cancel_22px.png"))));
         jButton3.setText("Cancel");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        jButton3.addActionListener(this::jButton3ActionPerformed);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -687,7 +648,7 @@ public final class Admin extends JFrame {
         );
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 18));
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Delete Documents");
 
@@ -712,7 +673,7 @@ public final class Admin extends JFrame {
             }
         });
 
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png"))); // NOI18N
+        jButton8.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/document_tracking_system/images/Search Property_22px.png"))));
         jButton8.setText("Search");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -720,34 +681,26 @@ public final class Admin extends JFrame {
             }
         });
 
-        jButtonTransactionHistoryV4.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jButtonTransactionHistoryV4.setFont(new java.awt.Font("Arial", 0, 13));
         jButtonTransactionHistoryV4.setForeground(new java.awt.Color(51, 51, 51));
-        jButtonTransactionHistoryV4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Cancel Subscription_22px.png"))); // NOI18N
+        jButtonTransactionHistoryV4.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/document_tracking_system/images/Cancel Subscription_22px.png"))));
         jButtonTransactionHistoryV4.setText("Delete");
         jButtonTransactionHistoryV4.setAlignmentY(0.0F);
         jButtonTransactionHistoryV4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButtonTransactionHistoryV4.setMargin(new java.awt.Insets(0, 20, 0, 0));
-        jButtonTransactionHistoryV4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonTransactionHistoryV4ActionPerformed(evt);
-            }
-        });
+        jButtonTransactionHistoryV4.addActionListener(this::jButtonTransactionHistoryV4ActionPerformed);
 
         jLabel44.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel44.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel44.setFont(new java.awt.Font("Arial", 0, 14));
         jLabel44.setForeground(new java.awt.Color(102, 102, 102));
         jLabel44.setText("Delete Records");
 
-        jButtonDocuments.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Refresh_22px.png"))); // NOI18N
+        jButtonDocuments.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/document_tracking_system/images/Refresh_22px.png"))));
         jButtonDocuments.setText("Refresh");
-        jButtonDocuments.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDocumentsActionPerformed(evt);
-            }
-        });
+        jButtonDocuments.addActionListener(this::jButtonDocumentsActionPerformed);
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel9.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial", Font.PLAIN, 18));
         jLabel9.setForeground(new java.awt.Color(204, 204, 204));
         jLabel9.setText("Delete Document's");
 
@@ -850,12 +803,12 @@ public final class Admin extends JFrame {
         );
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 18));
         jLabel7.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel7.setText("Edit Account(Setting)");
+        jLabel7.setText("Edit Account (Setting)");
 
         jLabel35.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel35.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel35.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel35.setText("LastName:");
 
         jTextFieldUNameACC.addActionListener(new java.awt.event.ActionListener() {
@@ -865,7 +818,7 @@ public final class Admin extends JFrame {
         });
 
         jLabel36.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel36.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel36.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel36.setText("UserName:");
 
         jTextFieldFirstnameACC.addActionListener(new java.awt.event.ActionListener() {
@@ -875,11 +828,11 @@ public final class Admin extends JFrame {
         });
 
         jLabel37.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel37.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel37.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel37.setText("FirstName:");
 
         jLabel49.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel49.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel49.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel49.setText("Password:");
 
         jTableAccount.setModel(new javax.swing.table.DefaultTableModel(
@@ -892,38 +845,22 @@ public final class Admin extends JFrame {
         ));
         jScrollPane1.setViewportView(jTableAccount);
 
-        jTextFieldPasACC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPasACCActionPerformed(evt);
-            }
-        });
+        jTextFieldPasACC.addActionListener(this::jTextFieldPasACCActionPerformed);
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png"))); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/document_tracking_system/images/Search Property_22px.png"))));
         jButton7.setText("Search");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
+        jButton7.addActionListener(this::jButton7ActionPerformed);
 
-        jButtonDelete.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jButtonDelete.setFont(new java.awt.Font("Arial", Font.PLAIN, 13));
         jButtonDelete.setForeground(new java.awt.Color(51, 51, 51));
-        jButtonDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Cancel Subscription_22px.png"))); // NOI18N
+        jButtonDelete.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/document_tracking_system/images/Cancel Subscription_22px.png"))));
         jButtonDelete.setText("Delete");
         jButtonDelete.setAlignmentY(0.0F);
         jButtonDelete.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButtonDelete.setMargin(new java.awt.Insets(0, 20, 0, 0));
-        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDeleteActionPerformed(evt);
-            }
-        });
+        jButtonDelete.addActionListener(this::jButtonDeleteActionPerformed);
 
-        jTextFieldAccounts.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldAccountsActionPerformed(evt);
-            }
-        });
+        jTextFieldAccounts.addActionListener(this::jTextFieldAccountsActionPerformed);
         jTextFieldAccounts.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldAccountsKeyReleased(evt);
@@ -931,24 +868,20 @@ public final class Admin extends JFrame {
         });
 
         jLabel45.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel45.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel45.setFont(new java.awt.Font("Arial", 0, 14));
         jLabel45.setForeground(new java.awt.Color(102, 102, 102));
         jLabel45.setText("Delete Records");
 
-        jButtonUpdate.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jButtonUpdate.setFont(new java.awt.Font("Arial", 0, 13));
         jButtonUpdate.setForeground(new java.awt.Color(51, 51, 51));
-        jButtonUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/register.png"))); // NOI18N
+        jButtonUpdate.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/document_tracking_system/images/register.png"))));
         jButtonUpdate.setText("Update");
         jButtonUpdate.setAlignmentY(0.0F);
         jButtonUpdate.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButtonUpdate.setMargin(new java.awt.Insets(0, 20, 0, 0));
-        jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonUpdateActionPerformed(evt);
-            }
-        });
+        jButtonUpdate.addActionListener(this::jButtonUpdateActionPerformed);
 
-        jButton31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Refresh_22px.png"))); // NOI18N
+        jButton31.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/document_tracking_system/images/Refresh_22px.png"))));
         jButton31.setText("Refresh");
         jButton31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1086,11 +1019,11 @@ public final class Admin extends JFrame {
 
         jLabelPassword.setText("jLabel2");
 
-        jLabel19s.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel19s.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel19s.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19s.setText("Admin");
 
-        jLabel24.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Admin");
 
@@ -1144,24 +1077,24 @@ public final class Admin extends JFrame {
 
         jPanel7.setBackground(new java.awt.Color(0, 51, 102));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("DAVAO ORIENTAL STATE UNIVERSITY");
+        jLabel1.setText("National Institute of Technology Agartala");
 
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Person_48px.png"))); // NOI18N
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Person_48px.png")));
 
-        jButtonLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/icons8_Exit_22px.png"))); // NOI18N
+        jButtonLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/icons8_Exit_22px.png")));
         jButtonLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLogoutActionPerformed(evt);
             }
         });
 
-        jLabel40.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel40.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel40.setForeground(new java.awt.Color(255, 255, 255));
         jLabel40.setText("Log-out");
 
-        jLabel25.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("Admin");
 
@@ -1207,16 +1140,16 @@ public final class Admin extends JFrame {
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel8.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 73, 250, 10));
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Person_48px.png"))); // NOI18N
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Person_48px.png")));
         jPanel8.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 12, -1, 50));
         jPanel8.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 132, 250, 10));
 
-        jLabel26.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Arial", 0, 18));
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("Admin Page");
         jPanel8.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 90, 140, 30));
 
-        jButtonSubmit7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Settings_30px.png"))); // NOI18N
+        jButtonSubmit7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Settings_30px.png")));
         jButtonSubmit7.setText("Edit Account's");
         jButtonSubmit7.setFocusable(false);
         jButtonSubmit7.addActionListener(new java.awt.event.ActionListener() {
@@ -1226,10 +1159,10 @@ public final class Admin extends JFrame {
         });
         jPanel8.add(jButtonSubmit7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 190, 40));
 
-        jButtonHomeV.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jButtonHomeV.setFont(new java.awt.Font("Arial", 0, 13));
         jButtonHomeV.setForeground(new java.awt.Color(51, 51, 51));
-        jButtonHomeV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/home.png"))); // NOI18N
-        jButtonHomeV.setText("Add User's");
+        jButtonHomeV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/home.png")));
+        jButtonHomeV.setText("Add User");
         jButtonHomeV.setAlignmentY(0.0F);
         jButtonHomeV.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButtonHomeV.setMargin(new java.awt.Insets(2, 30, 2, 1));
@@ -1240,10 +1173,10 @@ public final class Admin extends JFrame {
         });
         jPanel8.add(jButtonHomeV, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 190, 40));
 
-        jButtonTransactionHistoryV1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jButtonTransactionHistoryV1.setFont(new java.awt.Font("Arial", 0, 13));
         jButtonTransactionHistoryV1.setForeground(new java.awt.Color(51, 51, 51));
-        jButtonTransactionHistoryV1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Cancel Subscription_22px.png"))); // NOI18N
-        jButtonTransactionHistoryV1.setText("Delete Documents");
+        jButtonTransactionHistoryV1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Cancel Subscription_22px.png")));
+        jButtonTransactionHistoryV1.setText("Delete Document");
         jButtonTransactionHistoryV1.setAlignmentY(0.0F);
         jButtonTransactionHistoryV1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButtonTransactionHistoryV1.setMargin(new java.awt.Insets(0, 20, 0, 0));
@@ -1254,12 +1187,12 @@ public final class Admin extends JFrame {
         });
         jPanel8.add(jButtonTransactionHistoryV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 190, 40));
 
-        jLabel29.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("Logged in");
         jPanel8.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
 
-        jLabel30.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setText("Admin");
         jPanel8.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
@@ -1268,11 +1201,11 @@ public final class Admin extends JFrame {
 
         jPanel17.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12));
         jLabel10.setText("Document tracking system version 1.0");
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel11.setText("Copyright 2019 DOrSU all right reserve ");
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12));
+        jLabel11.setText("Copyright 2023 all rights reserved");
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -1308,440 +1241,424 @@ public final class Admin extends JFrame {
 
         setSize(new java.awt.Dimension(1366, 765));
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
+    }
+
+    //All the dummy data need to be replaced with the actual data
+
     public void reg() {
-        jComboBoxField.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent ie) {
-                if (ie.getStateChange() == ItemEvent.SELECTED) {
+        jComboBoxField.addItemListener(ie -> {
+            if (ie.getStateChange() == ItemEvent.SELECTED) {
 
-                    if (jComboBoxField.getSelectedItem().toString().equalsIgnoreCase("Academic")) {
-                        jComboBoxPermission.removeAllItems();
-                        jComboBoxPosition.removeAllItems();
-                        jComboBoxPosition.setEnabled(true);
-                        jComboBoxPermission.setEnabled(false);
-                        jLabelCourse.setVisible(true);
-                        jButtonSubmit.setEnabled(false);
+                if (jComboBoxField.getSelectedItem().toString().equalsIgnoreCase("Academic")) {
+                    jComboBoxPermission.removeAllItems();
+                    jComboBoxPosition.removeAllItems();
+                    jComboBoxPosition.setEnabled(true);
+                    jComboBoxPermission.setEnabled(false);
+                    jLabelCourse.setVisible(true);
+                    jButtonSubmit.setEnabled(false);
 
-                        jComboBoxPosition.addItem("Staff");
-                        jComboBoxPosition.addItem("Faculty");
-                        jComboBoxPosition.addItem("Office's Staff");
-                        jComboBoxPosition.addItem("Office's Faculty");
-                        jComboBoxPosition.addItem("Dean/Head/Director");
-                        jComboBoxPosition.addItemListener(new ItemListener() {
-                            @Override
-                            public void itemStateChanged(ItemEvent ie) {
-                                if (ie.getStateChange() == ItemEvent.SELECTED) {
+                    jComboBoxPosition.addItem("Staff");
+                    jComboBoxPosition.addItem("Faculty");
+                    jComboBoxPosition.addItem("Office's Staff");
+                    jComboBoxPosition.addItem("Office's Faculty");
+                    jComboBoxPosition.addItem("Dean/Head/Director");
+                    jComboBoxPosition.addItemListener(ie1 -> {
+                        if (ie1.getStateChange() == ItemEvent.SELECTED) {
 
-                                    if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Faculty")) {
-                                        jComboBoxInstitute.removeAllItems();
-                                        jComboBoxPermission.removeAllItems();
-                                        jLabelCourse.setVisible(true);
-                                        jButtonSubmit.setEnabled(false);
-                                        jComboBoxPermission.setEnabled(true);
-                                        jComboBoxInstitute.setEnabled(true);
-                                        jComboBoxInstitute.addItem("IALS");
-                                        jComboBoxInstitute.addItem("IBPA");
-                                        jComboBoxInstitute.addItem("ICE");
-                                        jComboBoxInstitute.addItem("IETT");
+                            if (Objects.requireNonNull(jComboBoxPosition.getSelectedItem()).toString().equalsIgnoreCase("Faculty")) {
+                                jComboBoxInstitute.removeAllItems();
+                                jComboBoxPermission.removeAllItems();
+                                jLabelCourse.setVisible(true);
+                                jButtonSubmit.setEnabled(false);
+                                jComboBoxPermission.setEnabled(true);
+                                jComboBoxInstitute.setEnabled(true);
+                                jComboBoxInstitute.addItem("ME");
+                                jComboBoxInstitute.addItem("EE");
+                                jComboBoxInstitute.addItem("CSE");
+                                jComboBoxInstitute.addItem("ECE");
 
-                                        jComboBoxInstitute.addItemListener(new ItemListener() {
-                                            @Override
-                                            public void itemStateChanged(ItemEvent ie) {
-                                                if (ie.getStateChange() == ItemEvent.SELECTED) {
+                                jComboBoxInstitute.addItemListener(ie11 -> {
+                                    if (ie11.getStateChange() == ItemEvent.SELECTED) {
 
-                                                    if (jComboBoxInstitute.getSelectedItem().toString().equalsIgnoreCase("IALS")) {
-                                                        jComboBoxPermission.removeAllItems();
-                                                        jButtonSubmit.setEnabled(false);
-                                                        jComboBoxPermission.addItem("ENVI-SCI Faculty");
-                                                        jComboBoxPermission.addItem("BSBIO Faculty");
-                                                        jComboBoxPermission.addItem("BSAM Faculty");
-                                                        jComboBoxPermission.addItem("DEVCOM Faculty");
-                                                        jComboBoxPermission.addItem("NURSING Faculty");
-                                                        jComboBoxPermission.addItem("BAT Faculty");
+                                        if (jComboBoxInstitute.getSelectedItem().toString().equalsIgnoreCase("ME")) {
+                                            jComboBoxPermission.removeAllItems();
+                                            jButtonSubmit.setEnabled(false);
+                                            jComboBoxPermission.addItem("ENVI-SCI Faculty");
+                                            jComboBoxPermission.addItem("BSBIO Faculty");
+                                            jComboBoxPermission.addItem("BSAM Faculty");
+                                            jComboBoxPermission.addItem("DEVCOM Faculty");
+                                            jComboBoxPermission.addItem("NURSING Faculty");
+                                            jComboBoxPermission.addItem("BAT Faculty");
 
-                                                    } else if (jComboBoxInstitute.getSelectedItem().toString().equalsIgnoreCase("IBPA")) {
-                                                        jComboBoxPermission.removeAllItems();
-                                                        jButtonSubmit.setEnabled(false);
-                                                        jComboBoxPermission.addItem("BSBA Faculty");
-                                                        jComboBoxPermission.addItem("HM Faculty");
-                                                        jComboBoxPermission.addItem("CRIM Faculty");
-                                                    } else if (jComboBoxInstitute.getSelectedItem().toString().equalsIgnoreCase("ICE")) {
-                                                        jComboBoxPermission.removeAllItems();
-                                                        jButtonSubmit.setEnabled(false);
-                                                        jComboBoxPermission.addItem("BSIT Faculty");
-                                                        jComboBoxPermission.addItem("BITM Faculty");
-                                                        jComboBoxPermission.addItem("BSMATH Faculty");
-                                                        jComboBoxPermission.addItem("CE Faculty");
-                                                    } else if (jComboBoxInstitute.getSelectedItem().toString().equalsIgnoreCase("IETT")) {
-                                                        jComboBoxPermission.removeAllItems();
-                                                        jButtonSubmit.setEnabled(false);
-                                                        jComboBoxPermission.addItem("BEED Faculty");
-                                                        jComboBoxPermission.addItem("BSED-BS Faculty");
-                                                        jComboBoxPermission.addItem("BSED-ENG Faculty");
-                                                        jComboBoxPermission.addItem("BSED-MATH Faculty");
-                                                        jComboBoxPermission.addItem("BSED-PS Faculty");
-                                                        jComboBoxPermission.addItem("BSED-PE Faculty");
-                                                        jComboBoxPermission.addItem("TLE Faculty");
-                                                    }
+                                        } else if (jComboBoxInstitute.getSelectedItem().toString().equalsIgnoreCase("EE")) {
+                                            jComboBoxPermission.removeAllItems();
+                                            jButtonSubmit.setEnabled(false);
+                                            jComboBoxPermission.addItem("BSBA Faculty");
+                                            jComboBoxPermission.addItem("HM Faculty");
+                                            jComboBoxPermission.addItem("CRIM Faculty");
+                                        } else if (jComboBoxInstitute.getSelectedItem().toString().equalsIgnoreCase("CSE")) {
+                                            jComboBoxPermission.removeAllItems();
+                                            jButtonSubmit.setEnabled(false);
+                                            jComboBoxPermission.addItem("BSIT Faculty");
+                                            jComboBoxPermission.addItem("BITM Faculty");
+                                            jComboBoxPermission.addItem("BSMATH Faculty");
+                                            jComboBoxPermission.addItem("CE Faculty");
+                                        } else if (jComboBoxInstitute.getSelectedItem().toString().equalsIgnoreCase("ECE")) {
+                                            jComboBoxPermission.removeAllItems();
+                                            jButtonSubmit.setEnabled(false);
+                                            jComboBoxPermission.addItem("BEED Faculty");
+                                            jComboBoxPermission.addItem("BSED-BS Faculty");
+                                            jComboBoxPermission.addItem("BSED-ENG Faculty");
+                                            jComboBoxPermission.addItem("BSED-MATH Faculty");
+                                            jComboBoxPermission.addItem("BSED-PS Faculty");
+                                            jComboBoxPermission.addItem("BSED-PE Faculty");
+                                            jComboBoxPermission.addItem("TLE Faculty");
+                                        }
 
-                                                }
-
-                                            }
-                                        });
-                                    } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Staff")) {
-                                        jComboBoxInstitute.removeAllItems();
-                                        //   jComboBoxPermission.removeAllItems();
-                                        jButtonSubmit.setEnabled(false);
-                                        jLabelCourse.setVisible(true);
-                                        jComboBoxInstitute.setEnabled(true);
-                                        jComboBoxPermission.removeAllItems();
-                                        jComboBoxPermission.setEnabled(true);
-                                        jComboBoxInstitute.addItem("IALS ");
-                                        jComboBoxInstitute.addItem("IBPA ");
-                                        jComboBoxInstitute.addItem("ICE ");
-                                        jComboBoxInstitute.addItem("IETT ");
-
-                                        jComboBoxInstitute.addItemListener(new ItemListener() {
-                                            @Override
-                                            public void itemStateChanged(ItemEvent ie) {
-                                                if (ie.getStateChange() == ItemEvent.SELECTED) {
-
-                                                    if (jComboBoxInstitute.getSelectedItem().toString().equalsIgnoreCase("IALS ")) {
-                                                        jComboBoxPermission.removeAllItems();
-                                                        jButtonSubmit.setEnabled(false);
-                                                        jComboBoxPermission.addItem("ENVI-SCI Staff");
-                                                        jComboBoxPermission.addItem("BSBIO Staff");
-                                                        jComboBoxPermission.addItem("BSAM Staff");
-                                                        jComboBoxPermission.addItem("DEVCOM Staff");
-                                                        jComboBoxPermission.addItem("NURSING Staff");
-                                                        jComboBoxPermission.addItem("BAT Staff");
-                                                    } else if (jComboBoxInstitute.getSelectedItem().toString().equalsIgnoreCase("IBPA ")) {
-                                                        jComboBoxPermission.removeAllItems();
-                                                        jButtonSubmit.setEnabled(false);
-                                                        jComboBoxPermission.addItem("BSBA Staff");
-                                                        jComboBoxPermission.addItem("HM Staff");
-                                                        jComboBoxPermission.addItem("CRIM Staff");
-                                                    } else if (jComboBoxInstitute.getSelectedItem().toString().equalsIgnoreCase("ICE ")) {
-                                                        jComboBoxPermission.removeAllItems();
-                                                        jButtonSubmit.setEnabled(false);
-                                                        jComboBoxPermission.addItem("BSIT Staff");
-                                                        jComboBoxPermission.addItem("BITM Staff");
-                                                        jComboBoxPermission.addItem("BSMATH Staff");
-                                                        jComboBoxPermission.addItem("CE Staff");
-                                                    } else if (jComboBoxInstitute.getSelectedItem().toString().equalsIgnoreCase("IETT ")) {
-                                                        jComboBoxPermission.removeAllItems();
-                                                        jButtonSubmit.setEnabled(false);
-                                                        jComboBoxPermission.addItem("BEED Staff");
-                                                        jComboBoxPermission.addItem("BSED-BS Staff");
-                                                        jComboBoxPermission.addItem("BSED-ENG Staff");
-                                                        jComboBoxPermission.addItem("BSED-MATH Staff");
-                                                        jComboBoxPermission.addItem("BSED-PS Staff");
-                                                        jComboBoxPermission.addItem("BSED-PE Staff");
-                                                        jComboBoxPermission.addItem("TLE Staff");
-                                                    }
-
-                                                }
-
-                                            }
-                                        });
-                                    } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Office's Staff")) {
-                                        jComboBoxPermission.removeAllItems();
-                                        jComboBoxInstitute.removeAllItems();
-                                        jComboBoxInstitute.setEnabled(true);
-                                        jLabelCourse.setVisible(false);
-                                        jButtonSubmit.setEnabled(false);
-                                        jComboBoxPermission.setEnabled(true);
-                                        jComboBoxPermission.addItem("Staff of FASST");
-                                        jComboBoxPermission.addItem("Health Service Unit Staff");
-                                        jComboBoxPermission.addItem("GCTC Staff");
-                                        jComboBoxPermission.addItem("Sports Development Office Staff");
-                                        jComboBoxPermission.addItem("TLR-AEC/QAD Staff");
-                                        jComboBoxPermission.addItem("Registrar Staff");
-                                        jComboBoxPermission.addItem("Office of Student and Affairs Staff");
-                                        jComboBoxPermission.addItem("Graduate School Coordinator Staff");
-                                        jComboBoxPermission.addItem("NSTP Staff");
-                                        jComboBoxPermission.addItem("Director for Instructor Staff");
-                                        jComboBoxPermission.addItem("Director for Student Service Staff");
-                                        jComboBoxPermission.addItem("SHS Administrator Staff");
-                                        jComboBoxPermission.addItem("College Librarian Staff");
-                                    } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Office's Faculty")) {
-                                        jComboBoxPermission.removeAllItems();
-                                        jComboBoxInstitute.removeAllItems();
-                                        jLabelCourse.setVisible(false);
-                                        jComboBoxInstitute.setEnabled(true);
-                                        jComboBoxPermission.setEnabled(true);
-                                        jComboBoxPermission.addItem("Faculty of FASST");
-                                        jComboBoxPermission.addItem("Health Service Unit Faculty");
-                                        jComboBoxPermission.addItem("GCTC Faculty");
-                                        jComboBoxPermission.addItem("Sports Development Office Faculty");
-                                        jComboBoxPermission.addItem("TLR-AEC/QAD Faculty");
-                                        jComboBoxPermission.addItem("Registrar Faculty");
-                                        jComboBoxPermission.addItem("Office of Student and Affairs Faculty");
-                                        jComboBoxPermission.addItem("Graduate School Coordinator Faculty");
-                                        jComboBoxPermission.addItem("NSTP Faculty");
-                                        jComboBoxPermission.addItem("Director for Instructor Faculty");
-                                        jComboBoxPermission.addItem("Director for Student Service Faculty");
-                                        jComboBoxPermission.addItem("SHS Administrator Faculty");
-                                        jComboBoxPermission.addItem("College Librarian Faculty");
-                                    } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Dean/Head/Director")) {
-
-                                        jComboBoxInstitute.setEnabled(true);
-                                        jComboBoxInstitute.removeAllItems();
-                                        jLabelCourse.setVisible(false);
-                                        jButtonSubmit.setEnabled(false);
-
-                                        jComboBoxPermission.setEnabled(true);
-                                        jComboBoxPermission.removeAllItems();
-
-                                        jComboBoxPermission.addItem("Head of IALS");
-                                        jComboBoxPermission.addItem("Head of IBPA");
-                                        jComboBoxPermission.addItem("Head of ICE");
-                                        jComboBoxPermission.addItem("Head of IETT");
-
-                                        jComboBoxPermission.addItem("Dean of IALS");
-                                        jComboBoxPermission.addItem("Dean of IBPA");
-                                        jComboBoxPermission.addItem("Dean of ICE");
-                                        jComboBoxPermission.addItem("Dean of IETT");
-
-                                        jComboBoxPermission.addItem("Head of FASST");
-                                        jComboBoxPermission.addItem("Head of Health Service Unit");
-                                        jComboBoxPermission.addItem("Head of GCTC");
-                                        jComboBoxPermission.addItem("Head of Sports Development Office");
-                                        jComboBoxPermission.addItem("Head of TLR-AEC/QAD");
-                                        jComboBoxPermission.addItem("Head of Registrar Office");
-                                        jComboBoxPermission.addItem("Head of Office of Student and Affairs");
-
-                                        jComboBoxPermission.addItem("Graduate School Coordinator");
-                                        jComboBoxPermission.addItem("Coordinator of NSTP");
-                                        jComboBoxPermission.addItem("Director for Instructor");
-                                        jComboBoxPermission.addItem("Director for Student Service");
-                                        jComboBoxPermission.addItem("SHS Administrator");
-                                        jComboBoxPermission.addItem("College Librarian");
-                                        jComboBoxPermission.addItem("Vice-President for Academic Affairs");
                                     }
+
+                                });
+                            } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Staff")) {
+                                jComboBoxInstitute.removeAllItems();
+                                //   jComboBoxPermission.removeAllItems();
+                                jButtonSubmit.setEnabled(false);
+                                jLabelCourse.setVisible(true);
+                                jComboBoxInstitute.setEnabled(true);
+                                jComboBoxPermission.removeAllItems();
+                                jComboBoxPermission.setEnabled(true);
+                                jComboBoxInstitute.addItem("ME ");
+                                jComboBoxInstitute.addItem("EE ");
+                                jComboBoxInstitute.addItem("CSE ");
+                                jComboBoxInstitute.addItem("ECE ");
+
+                                jComboBoxInstitute.addItemListener(ie112 -> {
+                                    if (ie112.getStateChange() == ItemEvent.SELECTED) {
+
+                                        if (jComboBoxInstitute.getSelectedItem().toString().equalsIgnoreCase("ME ")) {
+                                            jComboBoxPermission.removeAllItems();
+                                            jButtonSubmit.setEnabled(false);
+                                            jComboBoxPermission.addItem("ENVI-SCI Staff");
+                                            jComboBoxPermission.addItem("BSBIO Staff");
+                                            jComboBoxPermission.addItem("BSAM Staff");
+                                            jComboBoxPermission.addItem("DEVCOM Staff");
+                                            jComboBoxPermission.addItem("NURSING Staff");
+                                            jComboBoxPermission.addItem("BAT Staff");
+                                        } else if (jComboBoxInstitute.getSelectedItem().toString().equalsIgnoreCase("EE ")) {
+                                            jComboBoxPermission.removeAllItems();
+                                            jButtonSubmit.setEnabled(false);
+                                            jComboBoxPermission.addItem("BSBA Staff");
+                                            jComboBoxPermission.addItem("HM Staff");
+                                            jComboBoxPermission.addItem("CRIM Staff");
+                                        } else if (jComboBoxInstitute.getSelectedItem().toString().equalsIgnoreCase("CSE ")) {
+                                            jComboBoxPermission.removeAllItems();
+                                            jButtonSubmit.setEnabled(false);
+                                            jComboBoxPermission.addItem("BSIT Staff");
+                                            jComboBoxPermission.addItem("BITM Staff");
+                                            jComboBoxPermission.addItem("BSMATH Staff");
+                                            jComboBoxPermission.addItem("CE Staff");
+                                        } else if (jComboBoxInstitute.getSelectedItem().toString().equalsIgnoreCase("ECE ")) {
+                                            jComboBoxPermission.removeAllItems();
+                                            jButtonSubmit.setEnabled(false);
+                                            jComboBoxPermission.addItem("BEED Staff");
+                                            jComboBoxPermission.addItem("BSED-BS Staff");
+                                            jComboBoxPermission.addItem("BSED-ENG Staff");
+                                            jComboBoxPermission.addItem("BSED-MATH Staff");
+                                            jComboBoxPermission.addItem("BSED-PS Staff");
+                                            jComboBoxPermission.addItem("BSED-PE Staff");
+                                            jComboBoxPermission.addItem("TLE Staff");
+                                        }
+
+                                    }
+
+                                });
+                            } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Office's Staff")) {
+                                jComboBoxPermission.removeAllItems();
+                                jComboBoxInstitute.removeAllItems();
+                                jComboBoxInstitute.setEnabled(true);
+                                jLabelCourse.setVisible(false);
+                                jButtonSubmit.setEnabled(false);
+                                jComboBoxPermission.setEnabled(true);
+                                jComboBoxPermission.addItem("Staff of FASST");
+                                jComboBoxPermission.addItem("Health Service Unit Staff");
+                                jComboBoxPermission.addItem("GCTC Staff");
+                                jComboBoxPermission.addItem("Sports Development Office Staff");
+                                jComboBoxPermission.addItem("TLR-AEC/QAD Staff");
+                                jComboBoxPermission.addItem("Registrar Staff");
+                                jComboBoxPermission.addItem("Office of Student and Affairs Staff");
+                                jComboBoxPermission.addItem("Graduate College Coordinator Staff");
+                                jComboBoxPermission.addItem("NSTP Staff");
+                                jComboBoxPermission.addItem("Director for Instructor Staff");
+                                jComboBoxPermission.addItem("Director for Student Service Staff");
+                                jComboBoxPermission.addItem("SHS Administrator Staff");
+                                jComboBoxPermission.addItem("College Librarian Staff");
+                            } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Office's Faculty")) {
+                                jComboBoxPermission.removeAllItems();
+                                jComboBoxInstitute.removeAllItems();
+                                jLabelCourse.setVisible(false);
+                                jComboBoxInstitute.setEnabled(true);
+                                jComboBoxPermission.setEnabled(true);
+                                jComboBoxPermission.addItem("Faculty of FASST");
+                                jComboBoxPermission.addItem("Health Service Unit Faculty");
+                                jComboBoxPermission.addItem("GCTC Faculty");
+                                jComboBoxPermission.addItem("Sports Development Office Faculty");
+                                jComboBoxPermission.addItem("TLR-AEC/QAD Faculty");
+                                jComboBoxPermission.addItem("Registrar Faculty");
+                                jComboBoxPermission.addItem("Office of Student and Affairs Faculty");
+                                jComboBoxPermission.addItem("Graduate College Coordinator Faculty");
+                                jComboBoxPermission.addItem("NSTP Faculty");
+                                jComboBoxPermission.addItem("Director for Instructor Faculty");
+                                jComboBoxPermission.addItem("Director for Student Service Faculty");
+                                jComboBoxPermission.addItem("SHS Administrator Faculty");
+                                jComboBoxPermission.addItem("College Librarian Faculty");
+                            } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Dean/Head/Director")) {
+
+                                jComboBoxInstitute.setEnabled(true);
+                                jComboBoxInstitute.removeAllItems();
+                                jLabelCourse.setVisible(false);
+                                jButtonSubmit.setEnabled(false);
+
+                                jComboBoxPermission.setEnabled(true);
+                                jComboBoxPermission.removeAllItems();
+
+                                jComboBoxPermission.addItem("Head of ME");
+                                jComboBoxPermission.addItem("Head of EE");
+                                jComboBoxPermission.addItem("Head of CSE");
+                                jComboBoxPermission.addItem("Head of ECE");
+
+                                jComboBoxPermission.addItem("Dean of ME");
+                                jComboBoxPermission.addItem("Dean of EE");
+                                jComboBoxPermission.addItem("Dean of CSE");
+                                jComboBoxPermission.addItem("Dean of ECE");
+
+                                jComboBoxPermission.addItem("Head of FASST");
+                                jComboBoxPermission.addItem("Head of Health Service Unit");
+                                jComboBoxPermission.addItem("Head of GCTC");
+                                jComboBoxPermission.addItem("Head of Sports Development Office");
+                                jComboBoxPermission.addItem("Head of TLR-AEC/QAD");
+                                jComboBoxPermission.addItem("Head of Registrar Office");
+                                jComboBoxPermission.addItem("Head of Office of Student and Affairs");
+
+                                jComboBoxPermission.addItem("Graduate College Coordinator");
+                                jComboBoxPermission.addItem("Coordinator of NSTP");
+                                jComboBoxPermission.addItem("Director for Instructor");
+                                jComboBoxPermission.addItem("Director for Student Service");
+                                jComboBoxPermission.addItem("SHS Administrator");
+                                jComboBoxPermission.addItem("College Librarian");
+                                jComboBoxPermission.addItem("Vice-President for Academic Affairs");
+                            }
+                        }
+
+                    });
+
+                } else if (jComboBoxField.getSelectedItem().toString().equalsIgnoreCase("Administrative")) {
+                    jComboBoxPermission.removeAllItems();
+                    jComboBoxPosition.removeAllItems();
+                    jComboBoxPosition.setEnabled(true);
+                    jComboBoxPermission.setEnabled(false);
+                    jComboBoxInstitute.setEnabled(false);
+                    jComboBoxInstitute.removeAllItems();
+                    jButtonSubmit.setEnabled(false);
+                    jComboBoxPosition.addItem("Office's Staff ");
+                    jComboBoxPosition.addItem("Office's Faculty ");
+                    jComboBoxPosition.addItem("Dean/Head/Director ");
+                    jComboBoxPosition.addItemListener(ie12 -> {
+                        if (ie12.getStateChange() == ItemEvent.SELECTED) {
+
+                            if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Dean/Head/Director ")) {
+
+                                jComboBoxPermission.removeAllItems();
+                                jComboBoxPermission.setEnabled(true);
+                                jButtonSubmit.setEnabled(false);
+                                jComboBoxPermission.addItem("Head of Internal Control Unit");
+                                jComboBoxPermission.addItem("Head of Accounting Office");
+                                jComboBoxPermission.addItem("Head of Budget Office");
+                                jComboBoxPermission.addItem("Head of Cashier Office");
+                                jComboBoxPermission.addItem("Head of Procurement Office");
+                                jComboBoxPermission.addItem("Head of HRMD");
+                                jComboBoxPermission.addItem("Head of Supply and Property Unit");
+                                jComboBoxPermission.addItem("Head of ITSU");
+                                jComboBoxPermission.addItem("Head of General Service Unit");
+                                jComboBoxPermission.addItem("Vice-President for Administrative");
+                            } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Office's Staff ")) {
+                                jComboBoxPermission.removeAllItems();
+                                jComboBoxPermission.setEnabled(true);
+                                jButtonSubmit.setEnabled(false);
+                                jComboBoxPermission.addItem("Internal Control Unit Staff");
+                                jComboBoxPermission.addItem("Accounting Office Staff");
+                                jComboBoxPermission.addItem("Budget Office Staff");
+                                jComboBoxPermission.addItem("Cashier Office Staff");
+                                jComboBoxPermission.addItem("Procurement Office Staff");
+                                jComboBoxPermission.addItem("HRMD Staff");
+                                jComboBoxPermission.addItem("Supply and Property Unit Staff");
+                                jComboBoxPermission.addItem("ITSU Staff");
+                                jComboBoxPermission.addItem("General Service Unit Staff");
+                            } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Office's Faculty ")) {
+                                jComboBoxPermission.removeAllItems();
+                                jComboBoxPermission.setEnabled(true);
+                                jButtonSubmit.setEnabled(false);
+                                jComboBoxPermission.addItem("Internal Control Unit Faculty");
+                                jComboBoxPermission.addItem("Accounting Office Faculty");
+                                jComboBoxPermission.addItem("Budget Office Faculty");
+                                jComboBoxPermission.addItem("Cashier Office Faculty");
+                                jComboBoxPermission.addItem("Procurement Office Faculty");
+                                jComboBoxPermission.addItem("HRMD Faculty");
+                                jComboBoxPermission.addItem("Supply and Property Unit Faculty");
+                                jComboBoxPermission.addItem("ITSU Faculty");
+                                jComboBoxPermission.addItem("General Service Unit Faculty");
+                            }
+
+                        }
+
+                    });
+
+                } else if (jComboBoxField.getSelectedItem().toString().equalsIgnoreCase("Research Development and Extension")) {
+                    jComboBoxPermission.removeAllItems();
+                    jComboBoxPosition.removeAllItems();
+                    jComboBoxPosition.setEnabled(true);
+                    jComboBoxPermission.setEnabled(false);
+                    jComboBoxInstitute.setEnabled(false);
+                    jComboBoxInstitute.removeAllItems();
+                    jButtonSubmit.setEnabled(false);
+                    jComboBoxPosition.addItem("Office's Staff  ");
+                    jComboBoxPosition.addItem("Office's Faculty  ");
+                    jComboBoxPosition.addItem("Dean/Head/Director  ");
+                    jComboBoxPosition.addItemListener(ie13 -> {
+                        if (ie13.getStateChange() == ItemEvent.SELECTED) {
+
+                            if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Dean/Head/Director  ")) {
+                                jButtonSubmit.setEnabled(false);
+                                jComboBoxPermission.removeAllItems();
+                                jComboBoxPermission.setEnabled(true);
+                                jComboBoxPermission.addItem("Head of Journal and Publication Office");
+                                jComboBoxPermission.addItem("Head of Monitoring and Evaluation Unit");
+                                jComboBoxPermission.addItem("Head of Reseach and Development");
+                                jComboBoxPermission.addItem("Director for Extension");
+                                jComboBoxPermission.addItem("Head of CAAD");
+                                jComboBoxPermission.addItem("Director of Cooperative Development Center");
+                                jComboBoxPermission.addItem("Director of Gender and Development Center");
+                                jComboBoxPermission.addItem("Director of Provincial Institute of Agriculture");
+                                jComboBoxPermission.addItem("Director of Sentro ng Wika at Kultura");
+                                jComboBoxPermission.addItem("Director of RAC XI");
+                                jComboBoxPermission.addItem("Director of TIEC Center");
+                                jComboBoxPermission.addItem("Vice-President for Reseach Development and Extension");
+                            } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Office's Staff  ")) {
+                                jComboBoxPermission.removeAllItems();
+                                jComboBoxPermission.setEnabled(true);
+                                jButtonSubmit.setEnabled(false);
+                                jComboBoxPermission.addItem("Journal and Publication Office Staff");
+                                jComboBoxPermission.addItem("Monitoring and Evaluation Unit Staff");
+                                jComboBoxPermission.addItem("Reseach and Development Staff");
+                                jComboBoxPermission.addItem("Director for Extension Staff");
+                                jComboBoxPermission.addItem("CAAD Staff");
+                                jComboBoxPermission.addItem("Cooperative Development Center Staff");
+                                jComboBoxPermission.addItem("Gender and Development Center Staff");
+                                jComboBoxPermission.addItem("Provincial Institute of Agriculture Staff");
+                                jComboBoxPermission.addItem("Sentro ng Wika at Kultura Staff");
+                                jComboBoxPermission.addItem("RAC XI Staff");
+                                jComboBoxPermission.addItem("TIEC Center Staff");
+                            } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Office's Faculty  ")) {
+                                jComboBoxPermission.removeAllItems();
+                                jComboBoxPermission.setEnabled(true);
+                                jButtonSubmit.setEnabled(false);
+                                jComboBoxPermission.addItem("Journal and Publication Office Faculty");
+                                jComboBoxPermission.addItem("Monitoring and Evaluation Unit Faculty");
+                                jComboBoxPermission.addItem("Reseach and Development Faculty");
+                                jComboBoxPermission.addItem("Director for Extension Faculty");
+                                jComboBoxPermission.addItem("CAAD Faculty");
+                                jComboBoxPermission.addItem("Cooperative Development Center Faculty");
+                                jComboBoxPermission.addItem("Gender and Development Center Faculty");
+                                jComboBoxPermission.addItem("Provincial Institute of Agriculture Faculty");
+                                jComboBoxPermission.addItem("Sentro ng Wika at Kultura Faculty");
+                                jComboBoxPermission.addItem("RAC XI Faculty");
+                                jComboBoxPermission.addItem("TIEC Center Faculty");
+                            }
+
+                        }
+
+                    });
+
+                } else if (jComboBoxField.getSelectedItem().toString().equalsIgnoreCase("College Council")) {
+                    jComboBoxPermission.removeAllItems();
+                    jComboBoxPosition.removeAllItems();
+                    jComboBoxPosition.setEnabled(true);
+                    jComboBoxPermission.setEnabled(false);
+                    jComboBoxInstitute.setEnabled(false);
+                    jComboBoxInstitute.removeAllItems();
+                    jButtonSubmit.setEnabled(false);
+                    jComboBoxPosition.addItem("Office's Staff   ");
+                    jComboBoxPosition.addItem("Office's Faculty   ");
+                    jComboBoxPosition.addItem("Dean/Head/Director   ");
+                    jComboBoxPosition.addItemListener(new ItemListener() {
+                        @Override
+                        public void itemStateChanged(ItemEvent ie) {
+                            if (ie.getStateChange() == ItemEvent.SELECTED) {
+
+                                if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Dean/Head/Director   ")) {
+                                    jComboBoxPermission.removeAllItems();
+                                    jComboBoxPermission.setEnabled(true);
+                                    jButtonSubmit.setEnabled(false);
+                                    jComboBoxPermission.addItem("President of DOSCST Alumni Association");
+                                    jComboBoxPermission.addItem("Head of Quality of Management Office");
+                                    jComboBoxPermission.addItem("Entrepreneurship and Management Officer");
+                                    jComboBoxPermission.addItem("Public Information Officer");
+                                    jComboBoxPermission.addItem("Executive Assistant to the President");
+                                    jComboBoxPermission.addItem("Director for Planning and Development");
+                                    jComboBoxPermission.addItem("Head of Infrastructure Committee");
+                                    jComboBoxPermission.addItem("Head of Management Information System");
+                                } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Office's Staff   ")) {
+                                    jComboBoxPermission.removeAllItems();
+                                    jComboBoxPermission.setEnabled(true);
+                                    jButtonSubmit.setEnabled(false);
+                                    jComboBoxPermission.addItem("DOSCST Alumni Association Staff");
+                                    jComboBoxPermission.addItem("Quality of Management Office Staff");
+                                    jComboBoxPermission.addItem("Entrepreneurship and Management Officer Staff");
+                                    jComboBoxPermission.addItem("Public Information Officer Staff");
+                                    jComboBoxPermission.addItem("Executive Assistant to the President Staff");
+                                    jComboBoxPermission.addItem("Director for Planning and Development Staff");
+                                    jComboBoxPermission.addItem("Infrastructure Committee Staff");
+                                    jComboBoxPermission.addItem("Management Information System Staff");
+                                } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Office's Faculty   ")) {
+                                    jComboBoxPermission.removeAllItems();
+                                    jComboBoxPermission.setEnabled(true);
+                                    jButtonSubmit.setEnabled(false);
+                                    jComboBoxPermission.addItem("DOSCST Alumni Association Faculty");
+                                    jComboBoxPermission.addItem("Quality of Management Office Faculty");
+                                    jComboBoxPermission.addItem("Entrepreneurship and Management Officer Faculty");
+                                    jComboBoxPermission.addItem("Public Information Officer Faculty");
+                                    jComboBoxPermission.addItem("Executive Assistant to the President Faculty");
+                                    jComboBoxPermission.addItem("Director for Planning and Development Faculty");
+                                    jComboBoxPermission.addItem("Infrastructure Committee Faculty");
+                                    jComboBoxPermission.addItem("Management Information System Faculty");
                                 }
 
                             }
-                        });
 
-//////////////
-                    } else if (jComboBoxField.getSelectedItem().toString().equalsIgnoreCase("Administrative")) {
-                        jComboBoxPermission.removeAllItems();
-                        jComboBoxPosition.removeAllItems();
-                        jComboBoxPosition.setEnabled(true);
-                        jComboBoxPermission.setEnabled(false);
-                        jComboBoxInstitute.setEnabled(false);
-                        jComboBoxInstitute.removeAllItems();
-                        jButtonSubmit.setEnabled(false);
-                        jComboBoxPosition.addItem("Office's Staff ");
-                        jComboBoxPosition.addItem("Office's Faculty ");
-                        jComboBoxPosition.addItem("Dean/Head/Director ");
-                        jComboBoxPosition.addItemListener(new ItemListener() {
-                            @Override
-                            public void itemStateChanged(ItemEvent ie) {
-                                if (ie.getStateChange() == ItemEvent.SELECTED) {
+                        }
+                    });
 
-                                    if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Dean/Head/Director ")) {
+                } else if (jComboBoxField.getSelectedItem().toString().equalsIgnoreCase("Admin")) {
 
-                                        jComboBoxPermission.removeAllItems();
-                                        jComboBoxPermission.setEnabled(true);
-                                        jButtonSubmit.setEnabled(false);
-                                        jComboBoxPermission.addItem("Head of Internal Control Unit");
-                                        jComboBoxPermission.addItem("Head of Accounting Office");
-                                        jComboBoxPermission.addItem("Head of Budget Office");
-                                        jComboBoxPermission.addItem("Head of Cashier Office");
-                                        jComboBoxPermission.addItem("Head of Procurement Office");
-                                        jComboBoxPermission.addItem("Head of HRMD");
-                                        jComboBoxPermission.addItem("Head of Supply and Property Unit");
-                                        jComboBoxPermission.addItem("Head of ITSU");
-                                        jComboBoxPermission.addItem("Head of General Service Unit");
-                                        jComboBoxPermission.addItem("Vice-President for Administrative");
-                                    } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Office's Staff ")) {
-                                        jComboBoxPermission.removeAllItems();
-                                        jComboBoxPermission.setEnabled(true);
-                                        jButtonSubmit.setEnabled(false);
-                                        jComboBoxPermission.addItem("Internal Control Unit Staff");
-                                        jComboBoxPermission.addItem("Accounting Office Staff");
-                                        jComboBoxPermission.addItem("Budget Office Staff");
-                                        jComboBoxPermission.addItem("Cashier Office Staff");
-                                        jComboBoxPermission.addItem("Procurement Office Staff");
-                                        jComboBoxPermission.addItem("HRMD Staff");
-                                        jComboBoxPermission.addItem("Supply and Property Unit Staff");
-                                        jComboBoxPermission.addItem("ITSU Staff");
-                                        jComboBoxPermission.addItem("General Service Unit Staff");
-                                    } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Office's Faculty ")) {
-                                        jComboBoxPermission.removeAllItems();
-                                        jComboBoxPermission.setEnabled(true);
-                                        jButtonSubmit.setEnabled(false);
-                                        jComboBoxPermission.addItem("Internal Control Unit Faculty");
-                                        jComboBoxPermission.addItem("Accounting Office Faculty");
-                                        jComboBoxPermission.addItem("Budget Office Faculty");
-                                        jComboBoxPermission.addItem("Cashier Office Faculty");
-                                        jComboBoxPermission.addItem("Procurement Office Faculty");
-                                        jComboBoxPermission.addItem("HRMD Faculty");
-                                        jComboBoxPermission.addItem("Supply and Property Unit Faculty");
-                                        jComboBoxPermission.addItem("ITSU Faculty");
-                                        jComboBoxPermission.addItem("General Service Unit Faculty");
-                                    }
+                    jComboBoxPermission.removeAllItems();
+                    jComboBoxPosition.setEnabled(false);
+                    jComboBoxPosition.removeAllItems();
+                    jComboBoxPermission.setEnabled(false);
+                    jComboBoxInstitute.setEnabled(false);
+                    jComboBoxInstitute.removeAllItems();
+                    jComboBoxPermission.addItem("Admin");
 
-                                }
-
-                            }
-                        });
-
-                    } else if (jComboBoxField.getSelectedItem().toString().equalsIgnoreCase("Research Development and Extension")) {
-                        jComboBoxPermission.removeAllItems();
-                        jComboBoxPosition.removeAllItems();
-                        jComboBoxPosition.setEnabled(true);
-                        jComboBoxPermission.setEnabled(false);
-                        jComboBoxInstitute.setEnabled(false);
-                        jComboBoxInstitute.removeAllItems();
-                        jButtonSubmit.setEnabled(false);
-                        jComboBoxPosition.addItem("Office's Staff  ");
-                        jComboBoxPosition.addItem("Office's Faculty  ");
-                        jComboBoxPosition.addItem("Dean/Head/Director  ");
-                        jComboBoxPosition.addItemListener(new ItemListener() {
-                            @Override
-                            public void itemStateChanged(ItemEvent ie) {
-                                if (ie.getStateChange() == ItemEvent.SELECTED) {
-
-                                    if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Dean/Head/Director  ")) {
-                                        jButtonSubmit.setEnabled(false);
-                                        jComboBoxPermission.removeAllItems();
-                                        jComboBoxPermission.setEnabled(true);
-                                        jComboBoxPermission.addItem("Head of Journal and Publication Office");
-                                        jComboBoxPermission.addItem("Head of Monitoring and Evaluation Unit");
-                                        jComboBoxPermission.addItem("Head of Reseach and Development");
-                                        jComboBoxPermission.addItem("Director for Extension");
-                                        jComboBoxPermission.addItem("Head of CAAD");
-                                        jComboBoxPermission.addItem("Director of Cooperative Development Center");
-                                        jComboBoxPermission.addItem("Director of Gender and Development Center");
-                                        jComboBoxPermission.addItem("Director of Provincial Institute of Agriculture");
-                                        jComboBoxPermission.addItem("Director of Sentro ng Wika at Kultura");
-                                        jComboBoxPermission.addItem("Director of RAC XI");
-                                        jComboBoxPermission.addItem("Director of TIEC Center");
-                                        jComboBoxPermission.addItem("Vice-President for Reseach Development and Extension");
-                                    } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Office's Staff  ")) {
-                                        jComboBoxPermission.removeAllItems();
-                                        jComboBoxPermission.setEnabled(true);
-                                        jButtonSubmit.setEnabled(false);
-                                        jComboBoxPermission.addItem("Journal and Publication Office Staff");
-                                        jComboBoxPermission.addItem("Monitoring and Evaluation Unit Staff");
-                                        jComboBoxPermission.addItem("Reseach and Development Staff");
-                                        jComboBoxPermission.addItem("Director for Extension Staff");
-                                        jComboBoxPermission.addItem("CAAD Staff");
-                                        jComboBoxPermission.addItem("Cooperative Development Center Staff");
-                                        jComboBoxPermission.addItem("Gender and Development Center Staff");
-                                        jComboBoxPermission.addItem("Provincial Institute of Agriculture Staff");
-                                        jComboBoxPermission.addItem("Sentro ng Wika at Kultura Staff");
-                                        jComboBoxPermission.addItem("RAC XI Staff");
-                                        jComboBoxPermission.addItem("TIEC Center Staff");
-                                    } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Office's Faculty  ")) {
-                                        jComboBoxPermission.removeAllItems();
-                                        jComboBoxPermission.setEnabled(true);
-                                        jButtonSubmit.setEnabled(false);
-                                        jComboBoxPermission.addItem("Journal and Publication Office Faculty");
-                                        jComboBoxPermission.addItem("Monitoring and Evaluation Unit Faculty");
-                                        jComboBoxPermission.addItem("Reseach and Development Faculty");
-                                        jComboBoxPermission.addItem("Director for Extension Faculty");
-                                        jComboBoxPermission.addItem("CAAD Faculty");
-                                        jComboBoxPermission.addItem("Cooperative Development Center Faculty");
-                                        jComboBoxPermission.addItem("Gender and Development Center Faculty");
-                                        jComboBoxPermission.addItem("Provincial Institute of Agriculture Faculty");
-                                        jComboBoxPermission.addItem("Sentro ng Wika at Kultura Faculty");
-                                        jComboBoxPermission.addItem("RAC XI Faculty");
-                                        jComboBoxPermission.addItem("TIEC Center Faculty");
-                                    }
-
-                                }
-
-                            }
-                        });
-
-                    } else if (jComboBoxField.getSelectedItem().toString().equalsIgnoreCase("College Council")) {
-                        jComboBoxPermission.removeAllItems();
-                        jComboBoxPosition.removeAllItems();
-                        jComboBoxPosition.setEnabled(true);
-                        jComboBoxPermission.setEnabled(false);
-                        jComboBoxInstitute.setEnabled(false);
-                        jComboBoxInstitute.removeAllItems();
-                        jButtonSubmit.setEnabled(false);
-                        jComboBoxPosition.addItem("Office's Staff   ");
-                        jComboBoxPosition.addItem("Office's Faculty   ");
-                        jComboBoxPosition.addItem("Dean/Head/Director   ");
-                        jComboBoxPosition.addItemListener(new ItemListener() {
-                            @Override
-                            public void itemStateChanged(ItemEvent ie) {
-                                if (ie.getStateChange() == ItemEvent.SELECTED) {
-
-                                    if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Dean/Head/Director   ")) {
-                                        jComboBoxPermission.removeAllItems();
-                                        jComboBoxPermission.setEnabled(true);
-                                        jButtonSubmit.setEnabled(false);
-                                        jComboBoxPermission.addItem("President of DOSCST Alumni Association");
-                                        jComboBoxPermission.addItem("Head of Quality of Management Office");
-                                        jComboBoxPermission.addItem("Entrepreneurship and Management Officer");
-                                        jComboBoxPermission.addItem("Public Information Officer");
-                                        jComboBoxPermission.addItem("Executive Assistant to the President");
-                                        jComboBoxPermission.addItem("Director for Planning and Development");
-                                        jComboBoxPermission.addItem("Head of Infrastructure Committee");
-                                        jComboBoxPermission.addItem("Head of Management Information System");
-                                    } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Office's Staff   ")) {
-                                        jComboBoxPermission.removeAllItems();
-                                        jComboBoxPermission.setEnabled(true);
-                                        jButtonSubmit.setEnabled(false);
-                                        jComboBoxPermission.addItem("DOSCST Alumni Association Staff");
-                                        jComboBoxPermission.addItem("Quality of Management Office Staff");
-                                        jComboBoxPermission.addItem("Entrepreneurship and Management Officer Staff");
-                                        jComboBoxPermission.addItem("Public Information Officer Staff");
-                                        jComboBoxPermission.addItem("Executive Assistant to the President Staff");
-                                        jComboBoxPermission.addItem("Director for Planning and Development Staff");
-                                        jComboBoxPermission.addItem("Infrastructure Committee Staff");
-                                        jComboBoxPermission.addItem("Management Information System Staff");
-                                    } else if (jComboBoxPosition.getSelectedItem().toString().equalsIgnoreCase("Office's Faculty   ")) {
-                                        jComboBoxPermission.removeAllItems();
-                                        jComboBoxPermission.setEnabled(true);
-                                        jButtonSubmit.setEnabled(false);
-                                        jComboBoxPermission.addItem("DOSCST Alumni Association Faculty");
-                                        jComboBoxPermission.addItem("Quality of Management Office Faculty");
-                                        jComboBoxPermission.addItem("Entrepreneurship and Management Officer Faculty");
-                                        jComboBoxPermission.addItem("Public Information Officer Faculty");
-                                        jComboBoxPermission.addItem("Executive Assistant to the President Faculty");
-                                        jComboBoxPermission.addItem("Director for Planning and Development Faculty");
-                                        jComboBoxPermission.addItem("Infrastructure Committee Faculty");
-                                        jComboBoxPermission.addItem("Management Information System Faculty");
-                                    }
-
-                                }
-
-                            }
-                        });
-
-                    } else if (jComboBoxField.getSelectedItem().toString().equalsIgnoreCase("Admin")) {
-
-                        jComboBoxPermission.removeAllItems();
-                        jComboBoxPosition.setEnabled(false);
-                        jComboBoxPosition.removeAllItems();
-                        jComboBoxPermission.setEnabled(false);
-                        jComboBoxInstitute.setEnabled(false);
-                        jComboBoxInstitute.removeAllItems();
-                        jComboBoxPermission.addItem("Admin");
-
-                    } else if (jComboBoxField.getSelectedItem().toString().equalsIgnoreCase("President")) {
-                        jComboBoxPosition.setEnabled(false);
-                        jComboBoxPermission.removeAllItems();
-                        jComboBoxPermission.setEnabled(false);
-                        jComboBoxInstitute.setEnabled(false);
-                        jComboBoxInstitute.removeAllItems();
-                        jComboBoxPosition.removeAllItems();
-                        jComboBoxPermission.addItem("President");
-
-                    }
+                } else if (jComboBoxField.getSelectedItem().toString().equalsIgnoreCase("President")) {
+                    jComboBoxPosition.setEnabled(false);
+                    jComboBoxPermission.removeAllItems();
+                    jComboBoxPermission.setEnabled(false);
+                    jComboBoxInstitute.setEnabled(false);
+                    jComboBoxInstitute.removeAllItems();
+                    jComboBoxPosition.removeAllItems();
+                    jComboBoxPermission.addItem("President");
 
                 }
 
             }
+
         });
     }
     private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed

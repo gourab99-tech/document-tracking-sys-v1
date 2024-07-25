@@ -1,9 +1,3 @@
--- MySQL Administrator dump 1.4
---
--- ------------------------------------------------------
--- Server version	5.4.1-beta-community
-
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -13,19 +7,24 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-
---
--- Create schema document_tracking
---
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ document_tracking;
 USE document_tracking;
 
---
--- Table structure for table `document_tracking`.`documents`
---
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(250) NOT NULL DEFAULT '',
+  `password` varchar(250) NOT NULL DEFAULT '',
+  `permission` varchar(250) NOT NULL DEFAULT '',
+  `institute` varchar(250) NOT NULL DEFAULT '',
+  `name` varchar(250) NOT NULL DEFAULT '',
+  `lastname` varchar(250) NOT NULL DEFAULT '',
+  `field` varchar(250) NOT NULL DEFAULT '',
+  `program` varchar(250) NOT NULL DEFAULT '',
+  `position` varchar(250) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=latin1;
 
-DROP TABLE IF EXISTS `documents`;
+-- DROP TABLE IF EXISTS `documents`;
 CREATE TABLE `documents` (
   `documentID` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `from_data` varchar(250) NOT NULL DEFAULT '',
@@ -387,21 +386,6 @@ INSERT INTO `trackingpage` (`tracking_pageID`,`userID`,`from_data`,`by_data`,`do
 --
 -- Table structure for table `document_tracking`.`users`
 --
-
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(250) NOT NULL DEFAULT '',
-  `password` varchar(250) NOT NULL DEFAULT '',
-  `permission` varchar(250) NOT NULL DEFAULT '',
-  `institute` varchar(250) NOT NULL DEFAULT '',
-  `name` varchar(250) NOT NULL DEFAULT '',
-  `lastname` varchar(250) NOT NULL DEFAULT '',
-  `field` varchar(250) NOT NULL DEFAULT '',
-  `program` varchar(250) NOT NULL DEFAULT '',
-  `position` varchar(250) NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `document_tracking`.`users`

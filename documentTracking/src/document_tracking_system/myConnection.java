@@ -9,7 +9,7 @@ public class myConnection {
         Connection con = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/document_tracking", "root", "password");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/document_tracking?useSSL=false&allowMultiQueries=true&serverTimezone=UTC", "root", "gourab99");
         } catch (Exception e) {
             e.printStackTrace();
         }

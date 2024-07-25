@@ -1,38 +1,5 @@
-/*
- * To change this license header, choose License Deaners in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package document_tracking_system;
 
-import com.mysql.jdbc.Connection;
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
-import java.awt.Color;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
-import static java.lang.Thread.sleep;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.ListSelectionModel;
-import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
-import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -42,10 +9,19 @@ import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
-/**
- *
- * @author Admin
- */
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 public final class ReceiveSubmitPage extends JFrame {
 
     public ReceiveSubmitPage(String username) {
@@ -61,7 +37,6 @@ public final class ReceiveSubmitPage extends JFrame {
         jButtonPendingAccept.setEnabled(false);
         jButtonSubmit.setEnabled(false);
 
-//        numRowViewDetails();
         jTextFieldTracking.setEnabled(false);
         jButtonHomeV.setEnabled(false);
         jButtonTransactionHistoryV.setEnabled(false);
@@ -72,7 +47,7 @@ public final class ReceiveSubmitPage extends JFrame {
 
         jTextFieldFrom.setEnabled(false);
         jTextFieldBy.setEnabled(false);
-        //visble label for nutify
+
         jLabelIncomingMenuNumber.setVisible(false);
         jLabelIncomingMenuCircle.setVisible(false);
         jLabelPendingMenuNumber.setVisible(false);
@@ -83,8 +58,7 @@ public final class ReceiveSubmitPage extends JFrame {
         jLabelTrackingPageMenuNumber.setVisible(false);
         jLabelTransactionHistoryMenuNumber.setVisible(false);
         jLabelTransactionHistoryMenuCircle.setVisible(false);        //
-        //
-        //visend
+
         jLabelUsername.setText(username);
         jLabel24.setText(username);
 
@@ -265,7 +239,7 @@ public final class ReceiveSubmitPage extends JFrame {
                             if (("Vice-President for Reseach Development and Extension".equals(DocTrackSubmit.jLabelPermission.getText()))) {
                                 DocTrackSubmit.jComboBoxField.removeAllItems();
                                 DocTrackSubmit.jComboBoxField.addItem("Select");
-                                DocTrackSubmit.jComboBoxField.addItem("School President");
+                                DocTrackSubmit.jComboBoxField.addItem("College President");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Academic");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Administrative");
                                 DocTrackSubmit.jComboBoxField.addItem("Office of College Council");
@@ -277,7 +251,7 @@ public final class ReceiveSubmitPage extends JFrame {
                             } else if (("Vice-President for Academic Affairs".equals(DocTrackSubmit.jLabelPermission.getText()))) {
                                 DocTrackSubmit.jComboBoxField.removeAllItems();
                                 DocTrackSubmit.jComboBoxField.addItem("Select");
-                                DocTrackSubmit.jComboBoxField.addItem("School President");
+                                DocTrackSubmit.jComboBoxField.addItem("College President");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Reseach Development and Extension");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Administrative");
                                 DocTrackSubmit.jComboBoxField.addItem("Office of College Council");
@@ -289,7 +263,7 @@ public final class ReceiveSubmitPage extends JFrame {
                             } else if (("Vice-President for Administrative".equals(DocTrackSubmit.jLabelPermission.getText()))) {
                                 DocTrackSubmit.jComboBoxField.removeAllItems();
                                 DocTrackSubmit.jComboBoxField.addItem("Select");
-                                DocTrackSubmit.jComboBoxField.addItem("School President");
+                                DocTrackSubmit.jComboBoxField.addItem("College President");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Reseach Development and Extension");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Academic");
                                 DocTrackSubmit.jComboBoxField.addItem("Office of College Council");
@@ -302,7 +276,7 @@ public final class ReceiveSubmitPage extends JFrame {
                             else if (("President of DOSCST Alumni Association".equals(DocTrackSubmit.jLabelPermission.getText()))) {
                                 DocTrackSubmit.jComboBoxField.removeAllItems();
                                 DocTrackSubmit.jComboBoxField.addItem("Select");
-                                DocTrackSubmit.jComboBoxField.addItem("School President");
+                                DocTrackSubmit.jComboBoxField.addItem("College President");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Reseach Development and Extension");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Academic");
                                 DocTrackSubmit.jComboBoxField.addItem("Office of College Council");
@@ -314,7 +288,7 @@ public final class ReceiveSubmitPage extends JFrame {
                             } else if (("Head of Quality of Management Office".equals(DocTrackSubmit.jLabelPermission.getText()))) {
                                 DocTrackSubmit.jComboBoxField.removeAllItems();
                                 DocTrackSubmit.jComboBoxField.addItem("Select");
-                                DocTrackSubmit.jComboBoxField.addItem("School President");
+                                DocTrackSubmit.jComboBoxField.addItem("College President");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Reseach Development and Extension");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Academic");
                                 DocTrackSubmit.jComboBoxField.addItem("Office of College Council");
@@ -326,7 +300,7 @@ public final class ReceiveSubmitPage extends JFrame {
                             } else if (("Entrepreneurship and Management Officer".equals(DocTrackSubmit.jLabelPermission.getText()))) {
                                 DocTrackSubmit.jComboBoxField.removeAllItems();
                                 DocTrackSubmit.jComboBoxField.addItem("Select");
-                                DocTrackSubmit.jComboBoxField.addItem("School President");
+                                DocTrackSubmit.jComboBoxField.addItem("College President");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Reseach Development and Extension");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Academic");
                                 DocTrackSubmit.jComboBoxField.addItem("Office of College Council");
@@ -338,7 +312,7 @@ public final class ReceiveSubmitPage extends JFrame {
                             } else if (("Public Information Officer".equals(DocTrackSubmit.jLabelPermission.getText()))) {
                                 DocTrackSubmit.jComboBoxField.removeAllItems();
                                 DocTrackSubmit.jComboBoxField.addItem("Select");
-                                DocTrackSubmit.jComboBoxField.addItem("School President");
+                                DocTrackSubmit.jComboBoxField.addItem("College President");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Reseach Development and Extension");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Academic");
                                 DocTrackSubmit.jComboBoxField.addItem("Office of College Council");
@@ -350,7 +324,7 @@ public final class ReceiveSubmitPage extends JFrame {
                             } else if (("Executive Assistant to the President".equals(DocTrackSubmit.jLabelPermission.getText()))) {
                                 DocTrackSubmit.jComboBoxField.removeAllItems();
                                 DocTrackSubmit.jComboBoxField.addItem("Select");
-                                DocTrackSubmit.jComboBoxField.addItem("School President");
+                                DocTrackSubmit.jComboBoxField.addItem("College President");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Reseach Development and Extension");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Academic");
                                 DocTrackSubmit.jComboBoxField.addItem("Office of College Council");
@@ -362,7 +336,7 @@ public final class ReceiveSubmitPage extends JFrame {
                             } else if (("Director for Planning and Development".equals(DocTrackSubmit.jLabelPermission.getText()))) {
                                 DocTrackSubmit.jComboBoxField.removeAllItems();
                                 DocTrackSubmit.jComboBoxField.addItem("Select");
-                                DocTrackSubmit.jComboBoxField.addItem("School President");
+                                DocTrackSubmit.jComboBoxField.addItem("College President");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Reseach Development and Extension");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Academic");
                                 DocTrackSubmit.jComboBoxField.addItem("Office of College Council");
@@ -374,7 +348,7 @@ public final class ReceiveSubmitPage extends JFrame {
                             } else if (("Head of Infrastructure Committee".equals(DocTrackSubmit.jLabelPermission.getText()))) {
                                 DocTrackSubmit.jComboBoxField.removeAllItems();
                                 DocTrackSubmit.jComboBoxField.addItem("Select");
-                                DocTrackSubmit.jComboBoxField.addItem("School President");
+                                DocTrackSubmit.jComboBoxField.addItem("College President");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Reseach Development and Extension");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Academic");
                                 DocTrackSubmit.jComboBoxField.addItem("Office of College Council");
@@ -386,7 +360,7 @@ public final class ReceiveSubmitPage extends JFrame {
                             } else if (("Head of Management Information System".equals(DocTrackSubmit.jLabelPermission.getText()))) {
                                 DocTrackSubmit.jComboBoxField.removeAllItems();
                                 DocTrackSubmit.jComboBoxField.addItem("Select");
-                                DocTrackSubmit.jComboBoxField.addItem("School President");
+                                DocTrackSubmit.jComboBoxField.addItem("College President");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Reseach Development and Extension");
                                 DocTrackSubmit.jComboBoxField.addItem("Vice of Academic");
                                 DocTrackSubmit.jComboBoxField.addItem("Office of College Council");
@@ -783,22 +757,22 @@ public final class ReceiveSubmitPage extends JFrame {
         jPanel6.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel21.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel21.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Arial", 0, 18));
         jLabel21.setForeground(new java.awt.Color(204, 102, 0));
-        jLabel21.setText("School Personnel Group | Routed incoming document");
+        jLabel21.setText("College Personnel Group | Routed incoming document");
 
         jLabel22.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel22.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel22.setForeground(new java.awt.Color(51, 51, 51));
         jLabel22.setText("Home");
 
         jLabel42.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel42.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel42.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel42.setForeground(new java.awt.Color(51, 51, 51));
         jLabel42.setText("Submit Document");
 
         jLabelTime.setBackground(new java.awt.Color(102, 102, 102));
-        jLabelTime.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabelTime.setFont(new java.awt.Font("Arial", 0, 12));
         jLabelTime.setForeground(new java.awt.Color(51, 51, 51));
         jLabelTime.setText("December/12/ 2019");
 
@@ -851,7 +825,7 @@ public final class ReceiveSubmitPage extends JFrame {
             .addGap(0, 2, Short.MAX_VALUE)
         );
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Cancel_22px.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Cancel_22px.png")));
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -859,7 +833,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButtonSubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/cheek.png"))); // NOI18N
+        jButtonSubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/cheek.png")));
         jButtonSubmit.setText("Submit");
         jButtonSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -868,16 +842,16 @@ public final class ReceiveSubmitPage extends JFrame {
         });
 
         jLabel12.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel12.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Arial", 0, 14));
         jLabel12.setForeground(new java.awt.Color(102, 102, 102));
         jLabel12.setText("Submission");
 
         jLabel13.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel13.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Arial", 0, 16));
         jLabel13.setForeground(new java.awt.Color(102, 102, 102));
         jLabel13.setText("Submit Document");
 
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel6.setText("From (DOSCST):");
 
         jTextFieldFrom.addActionListener(new java.awt.event.ActionListener() {
@@ -886,10 +860,10 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel7.setText("By:");
 
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel8.setText("Document type:");
 
         jTextAreaDetails.setColumns(20);
@@ -897,7 +871,7 @@ public final class ReceiveSubmitPage extends JFrame {
         jTextAreaDetails.setText("Please type text \n");
         jScrollPane1.setViewportView(jTextAreaDetails);
 
-        jLabel9.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel9.setText("Details:");
 
         jTextAreaPurpose.setColumns(20);
@@ -905,10 +879,10 @@ public final class ReceiveSubmitPage extends JFrame {
         jTextAreaPurpose.setText("For approval");
         jScrollPane2.setViewportView(jTextAreaPurpose);
 
-        jLabel10.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel10.setText("Purpose of submission:");
 
-        jLabel11.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel11.setText("To:");
 
         jComboBoxField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Academic", "Administrative", "Research Development and Extension", "College Council" }));
@@ -941,7 +915,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jLabel17.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel17.setText("Field:");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -1091,27 +1065,27 @@ public final class ReceiveSubmitPage extends JFrame {
         jPanel13.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, -1));
 
         jLabel5.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 16));
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Documents");
         jPanel13.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 8, -1, 25));
         jPanel13.add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 198, 350, -1));
 
         jLabelTransactionHistoryNumber.setBackground(new java.awt.Color(0, 102, 153));
-        jLabelTransactionHistoryNumber.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabelTransactionHistoryNumber.setFont(new java.awt.Font("Arial", 1, 11));
         jLabelTransactionHistoryNumber.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTransactionHistoryNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTransactionHistoryNumber.setText("0");
         jPanel13.add(jLabelTransactionHistoryNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 20, 20));
 
-        jLabelTransactionHistoryCircle.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelTransactionHistoryCircle.setFont(new java.awt.Font("Arial", 1, 18));
         jLabelTransactionHistoryCircle.setForeground(new java.awt.Color(0, 102, 0));
         jLabelTransactionHistoryCircle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTransactionHistoryCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png"))); // NOI18N
+        jLabelTransactionHistoryCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png")));
         jPanel13.add(jLabelTransactionHistoryCircle, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 40, 40));
 
         jButtonTransactionHistory.setBackground(new java.awt.Color(0, 51, 100));
-        jButtonTransactionHistory.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jButtonTransactionHistory.setFont(new java.awt.Font("Arial", 0, 13));
         jButtonTransactionHistory.setForeground(new java.awt.Color(255, 255, 255));
         jButtonTransactionHistory.setText("Transaction History");
         jButtonTransactionHistory.setMargin(new java.awt.Insets(0, 0, 0, 0));
@@ -1123,20 +1097,20 @@ public final class ReceiveSubmitPage extends JFrame {
         jPanel13.add(jButtonTransactionHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 220, 50));
 
         jLabeltrackingPageNumber.setBackground(new java.awt.Color(0, 102, 153));
-        jLabeltrackingPageNumber.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabeltrackingPageNumber.setFont(new java.awt.Font("Arial", 1, 11));
         jLabeltrackingPageNumber.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltrackingPageNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabeltrackingPageNumber.setText("0");
         jPanel13.add(jLabeltrackingPageNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 20, 20));
 
-        jLabelTrackingPageCircle.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelTrackingPageCircle.setFont(new java.awt.Font("Arial", 1, 18));
         jLabelTrackingPageCircle.setForeground(new java.awt.Color(0, 102, 0));
         jLabelTrackingPageCircle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTrackingPageCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png"))); // NOI18N
+        jLabelTrackingPageCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png")));
         jPanel13.add(jLabelTrackingPageCircle, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 40, 60));
 
         jButtonTrackingPage.setBackground(new java.awt.Color(0, 51, 100));
-        jButtonTrackingPage.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jButtonTrackingPage.setFont(new java.awt.Font("Arial", 0, 11));
         jButtonTrackingPage.setForeground(new java.awt.Color(255, 255, 255));
         jButtonTrackingPage.setText("Tracking Page");
         jButtonTrackingPage.setAlignmentY(0.0F);
@@ -1148,27 +1122,22 @@ public final class ReceiveSubmitPage extends JFrame {
         });
         jPanel13.add(jButtonTrackingPage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 100, 50));
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Davao_Oriental_State_College_of_Science_and_Technology.png"))); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/newLogo.png")));
         jPanel13.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 190, 170));
 
-        jLabel27.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel27.setFont(new java.awt.Font("Arial", 0, 14));
         jLabel27.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel27.setText("Document Tracking System (DTS)");
+        jLabel27.setText("Document Tracking System");
         jPanel13.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, -1, -1));
 
-        jLabel31.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel31.setFont(new java.awt.Font("Arial", 0, 14));
         jLabel31.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel31.setText("The Davao Oriental State University");
+        jLabel31.setText("National Institute of Technology Agartala");
         jPanel13.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, 10));
 
-        jLabel37.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(204, 102, 0));
-        jLabel37.setText("(DOrSU) ");
-        jPanel13.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, -1, 30));
-
-        jLabel38.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel38.setFont(new java.awt.Font("Arial", 0, 14));
         jLabel38.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel38.setText("is a state university in Mati City, Davao Oriental,");
+        jLabel38.setText("is a national level institute in Agartala, Tripura");
         jPanel13.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, -1, 40));
         jPanel13.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
 
@@ -1176,46 +1145,46 @@ public final class ReceiveSubmitPage extends JFrame {
         jPanel13.add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 250, 17));
 
         jLabelIncomingNumber.setBackground(new java.awt.Color(0, 102, 153));
-        jLabelIncomingNumber.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabelIncomingNumber.setFont(new java.awt.Font("Arial", 1, 11));
         jLabelIncomingNumber.setForeground(new java.awt.Color(255, 255, 255));
         jLabelIncomingNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelIncomingNumber.setText("0");
         jPanel13.add(jLabelIncomingNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 20, 20));
 
         jLabelPendingNumber.setBackground(new java.awt.Color(0, 102, 153));
-        jLabelPendingNumber.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabelPendingNumber.setFont(new java.awt.Font("Arial", 1, 11));
         jLabelPendingNumber.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPendingNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelPendingNumber.setText("0");
         jPanel13.add(jLabelPendingNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 20, 20));
 
         jLabelOutgoingNumber.setBackground(new java.awt.Color(0, 102, 153));
-        jLabelOutgoingNumber.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabelOutgoingNumber.setFont(new java.awt.Font("Arial", 1, 11));
         jLabelOutgoingNumber.setForeground(new java.awt.Color(255, 255, 255));
         jLabelOutgoingNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelOutgoingNumber.setText("0");
         jPanel13.add(jLabelOutgoingNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 20, 20));
 
-        jLabelOutgoingCircle.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelOutgoingCircle.setFont(new java.awt.Font("Arial", 1, 18));
         jLabelOutgoingCircle.setForeground(new java.awt.Color(0, 102, 0));
         jLabelOutgoingCircle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelOutgoingCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png"))); // NOI18N
+        jLabelOutgoingCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png")));
         jPanel13.add(jLabelOutgoingCircle, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 40, 40));
 
-        jLabelPendingCircle.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelPendingCircle.setFont(new java.awt.Font("Arial", 1, 18));
         jLabelPendingCircle.setForeground(new java.awt.Color(0, 102, 0));
         jLabelPendingCircle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelPendingCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png"))); // NOI18N
+        jLabelPendingCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png")));
         jPanel13.add(jLabelPendingCircle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 40, 40));
 
-        jLabelIncomingCircle.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelIncomingCircle.setFont(new java.awt.Font("Arial", 1, 18));
         jLabelIncomingCircle.setForeground(new java.awt.Color(0, 102, 0));
         jLabelIncomingCircle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelIncomingCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png"))); // NOI18N
+        jLabelIncomingCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png")));
         jPanel13.add(jLabelIncomingCircle, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 40, 60));
 
         jButtonIncoming.setBackground(new java.awt.Color(0, 51, 100));
-        jButtonIncoming.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jButtonIncoming.setFont(new java.awt.Font("Arial", 0, 13));
         jButtonIncoming.setForeground(new java.awt.Color(255, 255, 255));
         jButtonIncoming.setText("Incoming");
         jButtonIncoming.setAlignmentY(0.0F);
@@ -1229,7 +1198,7 @@ public final class ReceiveSubmitPage extends JFrame {
         jPanel13.add(jButtonIncoming, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 100, 50));
 
         jButtonPending.setBackground(new java.awt.Color(0, 51, 100));
-        jButtonPending.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jButtonPending.setFont(new java.awt.Font("Arial", 0, 13));
         jButtonPending.setForeground(new java.awt.Color(255, 255, 255));
         jButtonPending.setText("Pending");
         jButtonPending.setMargin(null);
@@ -1241,9 +1210,9 @@ public final class ReceiveSubmitPage extends JFrame {
         jPanel13.add(jButtonPending, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 100, 50));
 
         jButtonOutgoing.setBackground(new java.awt.Color(0, 51, 100));
-        jButtonOutgoing.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jButtonOutgoing.setFont(new java.awt.Font("Arial", 0, 13));
         jButtonOutgoing.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonOutgoing.setText("Outgoing"); // NOI18N
+        jButtonOutgoing.setText("Outgoing");
         jButtonOutgoing.setMargin(null);
         jButtonOutgoing.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1255,7 +1224,7 @@ public final class ReceiveSubmitPage extends JFrame {
         jPanel44.setBackground(new java.awt.Color(255, 255, 255));
         jPanel44.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/logo.png"))); // NOI18N
+        jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/newTrackLogo.png")));
         jPanel44.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 11, -1, 48));
         jPanel44.add(jSeparator22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 34, 246, -1));
 
@@ -1300,12 +1269,12 @@ public final class ReceiveSubmitPage extends JFrame {
         );
 
         jLabel15.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel15.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Arial", 0, 14));
         jLabel15.setForeground(new java.awt.Color(102, 102, 102));
         jLabel15.setText("Document Tracking Result Data");
 
         jLabel26.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel26.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Arial", 0, 16));
         jLabel26.setForeground(new java.awt.Color(102, 102, 102));
         jLabel26.setText("Tracking Page (Monitoring)");
 
@@ -1335,7 +1304,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png")));
         jButton3.setText("Search");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1343,7 +1312,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Refresh_22px.png"))); // NOI18N
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Refresh_22px.png")));
         jButton10.setText("Refresh");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1352,7 +1321,7 @@ public final class ReceiveSubmitPage extends JFrame {
         });
 
         jLabel62.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel62.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel62.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel62.setForeground(new java.awt.Color(51, 51, 51));
         jLabel62.setText("Result Data");
 
@@ -1457,12 +1426,12 @@ public final class ReceiveSubmitPage extends JFrame {
         );
 
         jLabel33.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel33.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel33.setFont(new java.awt.Font("Arial", 0, 14));
         jLabel33.setForeground(new java.awt.Color(102, 102, 102));
         jLabel33.setText("History Data Transaction");
 
         jLabel34.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel34.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jLabel34.setFont(new java.awt.Font("Arial", 0, 16));
         jLabel34.setForeground(new java.awt.Color(102, 102, 102));
         jLabel34.setText("All Transaction History / Data Records");
 
@@ -1477,7 +1446,7 @@ public final class ReceiveSubmitPage extends JFrame {
         jScrollPane5.setViewportView(jTableTransactionHistory);
 
         jLabel35.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel35.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel35.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel35.setForeground(new java.awt.Color(51, 51, 51));
         jLabel35.setText("Show");
 
@@ -1494,7 +1463,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png"))); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png")));
         jButton7.setText("Search");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1502,7 +1471,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Refresh_22px.png"))); // NOI18N
+        jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Refresh_22px.png")));
         jButton17.setText("Refresh");
         jButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1510,7 +1479,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButtonTransactionHistoryViewDetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Open View_22px.png"))); // NOI18N
+        jButtonTransactionHistoryViewDetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Open View_22px.png")));
         jButtonTransactionHistoryViewDetails.setText("View Details");
         jButtonTransactionHistoryViewDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1626,12 +1595,12 @@ public final class ReceiveSubmitPage extends JFrame {
         );
 
         jLabel29.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel29.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Arial", 0, 14));
         jLabel29.setForeground(new java.awt.Color(102, 102, 102));
         jLabel29.setText("Document Tracking Transaction Result Data");
 
         jLabel30.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel30.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Arial", 0, 16));
         jLabel30.setForeground(new java.awt.Color(102, 102, 102));
         jLabel30.setText("View Details Transaction");
 
@@ -1647,7 +1616,7 @@ public final class ReceiveSubmitPage extends JFrame {
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10" }));
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png")));
         jButton4.setText("Search");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1655,7 +1624,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Go Back_22px.png"))); // NOI18N
+        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Go Back_22px.png")));
         jButton16.setText("Back");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1663,7 +1632,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Print_22px.png"))); // NOI18N
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Print_22px.png")));
         jButton13.setText("Print Data");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1685,7 +1654,7 @@ public final class ReceiveSubmitPage extends JFrame {
         );
 
         jLabel63.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel63.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel63.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel63.setForeground(new java.awt.Color(51, 51, 51));
         jLabel63.setText("Result Data");
 
@@ -1796,12 +1765,12 @@ public final class ReceiveSubmitPage extends JFrame {
         );
 
         jLabel44.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel44.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel44.setFont(new java.awt.Font("Arial", 0, 14));
         jLabel44.setForeground(new java.awt.Color(102, 102, 102));
         jLabel44.setText("Results Data");
 
         jLabel45.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel45.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jLabel45.setFont(new java.awt.Font("Arial", 0, 16));
         jLabel45.setForeground(new java.awt.Color(102, 102, 102));
         jLabel45.setText("Incoming Documents");
 
@@ -1816,7 +1785,7 @@ public final class ReceiveSubmitPage extends JFrame {
         jScrollPane8.setViewportView(jTableIncoming);
 
         jLabel46.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel46.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel46.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel46.setForeground(new java.awt.Color(51, 51, 51));
         jLabel46.setText("Show");
 
@@ -1826,7 +1795,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButtonIncomingP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png"))); // NOI18N
+        jButtonIncomingP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png")));
         jButtonIncomingP.setText("Search");
         jButtonIncomingP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1834,7 +1803,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButtonIncomingAccept.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Accepted_22px.png"))); // NOI18N
+        jButtonIncomingAccept.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Accepted_22px.png")));
         jButtonIncomingAccept.setText("Receive");
         jButtonIncomingAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1842,7 +1811,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Open View_22px.png"))); // NOI18N
+        jButton25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Open View_22px.png")));
         jButton25.setText("View All List");
         jButton25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1850,7 +1819,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Refresh_22px.png"))); // NOI18N
+        jButton29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Refresh_22px.png")));
         jButton29.setText("Refresh");
         jButton29.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1966,12 +1935,12 @@ public final class ReceiveSubmitPage extends JFrame {
         );
 
         jLabel16.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel16.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Arial", 0, 14));
         jLabel16.setForeground(new java.awt.Color(102, 102, 102));
         jLabel16.setText("Document Tracking Result Data");
 
         jLabel47.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel47.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jLabel47.setFont(new java.awt.Font("Arial", 0, 16));
         jLabel47.setForeground(new java.awt.Color(102, 102, 102));
         jLabel47.setText("Pending (Action Needed)");
 
@@ -2009,7 +1978,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png"))); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png")));
         jButton5.setText("Search");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2017,7 +1986,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButtonPendingAccept.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/pending List_22px.png"))); // NOI18N
+        jButtonPendingAccept.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/pending List_22px.png")));
         jButtonPendingAccept.setText("View Data");
         jButtonPendingAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2026,11 +1995,11 @@ public final class ReceiveSubmitPage extends JFrame {
         });
 
         jLabel49.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel49.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel49.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel49.setForeground(new java.awt.Color(51, 51, 51));
         jLabel49.setText("Show");
 
-        jButton26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Open View_22px.png"))); // NOI18N
+        jButton26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Open View_22px.png")));
         jButton26.setText("View All List");
         jButton26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2038,7 +2007,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Refresh_22px.png"))); // NOI18N
+        jButton32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Refresh_22px.png")));
         jButton32.setText("Refresh");
         jButton32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2153,12 +2122,12 @@ public final class ReceiveSubmitPage extends JFrame {
         );
 
         jLabel52.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel52.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel52.setFont(new java.awt.Font("Arial", 0, 14));
         jLabel52.setForeground(new java.awt.Color(102, 102, 102));
         jLabel52.setText("Results Data");
 
         jLabel53.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel53.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jLabel53.setFont(new java.awt.Font("Arial", 0, 16));
         jLabel53.setForeground(new java.awt.Color(102, 102, 102));
         jLabel53.setText("Document Outgoing for Actions");
 
@@ -2173,7 +2142,7 @@ public final class ReceiveSubmitPage extends JFrame {
         jScrollPane10.setViewportView(jTableOutgoing);
 
         jLabel54.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel54.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel54.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel54.setForeground(new java.awt.Color(51, 51, 51));
         jLabel54.setText("Show");
 
@@ -2183,7 +2152,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png"))); // NOI18N
+        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png")));
         jButton15.setText("Search");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2198,7 +2167,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Open View_22px.png"))); // NOI18N
+        jButton23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Open View_22px.png")));
         jButton23.setText("View All List");
         jButton23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2206,7 +2175,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Refresh_22px.png"))); // NOI18N
+        jButton30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Refresh_22px.png")));
         jButton30.setText("Refresh");
         jButton30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2322,12 +2291,12 @@ public final class ReceiveSubmitPage extends JFrame {
         );
 
         jLabel48.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel48.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel48.setFont(new java.awt.Font("Arial", 0, 14));
         jLabel48.setForeground(new java.awt.Color(102, 102, 102));
         jLabel48.setText("Results Data");
 
         jLabel50.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel50.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jLabel50.setFont(new java.awt.Font("Arial", 0, 16));
         jLabel50.setForeground(new java.awt.Color(102, 102, 102));
         jLabel50.setText("Document Incoming List");
 
@@ -2347,7 +2316,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png"))); // NOI18N
+        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png")));
         jButton14.setText("Search");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2355,7 +2324,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButtonincommingList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Print_22px.png"))); // NOI18N
+        jButtonincommingList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Print_22px.png")));
         jButtonincommingList.setText("Print Data");
         jButtonincommingList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2363,7 +2332,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Refresh_22px.png"))); // NOI18N
+        jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Refresh_22px.png")));
         jButton18.setText("Refresh");
         jButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2372,7 +2341,7 @@ public final class ReceiveSubmitPage extends JFrame {
         });
 
         jLabel61.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel61.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel61.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel61.setForeground(new java.awt.Color(51, 51, 51));
         jLabel61.setText("Result Data");
 
@@ -2483,12 +2452,12 @@ public final class ReceiveSubmitPage extends JFrame {
         );
 
         jLabel55.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel55.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel55.setFont(new java.awt.Font("Arial", 0, 14));
         jLabel55.setForeground(new java.awt.Color(102, 102, 102));
         jLabel55.setText("Results Data");
 
         jLabel56.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel56.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jLabel56.setFont(new java.awt.Font("Arial", 0, 16));
         jLabel56.setForeground(new java.awt.Color(102, 102, 102));
         jLabel56.setText("Document Pending List");
 
@@ -2503,7 +2472,7 @@ public final class ReceiveSubmitPage extends JFrame {
         jScrollPane11.setViewportView(jTablePendingList);
 
         jLabel57.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel57.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel57.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel57.setForeground(new java.awt.Color(51, 51, 51));
         jLabel57.setText("Show");
 
@@ -2513,7 +2482,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png"))); // NOI18N
+        jButton19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png")));
         jButton19.setText("Search");
         jButton19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2528,7 +2497,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Print_22px.png"))); // NOI18N
+        jButton21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Print_22px.png")));
         jButton21.setText("Print Data");
         jButton21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2536,7 +2505,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Refresh_22px.png"))); // NOI18N
+        jButton22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Refresh_22px.png")));
         jButton22.setText("Refresh");
         jButton22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2652,12 +2621,12 @@ public final class ReceiveSubmitPage extends JFrame {
         );
 
         jLabel58.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel58.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel58.setFont(new java.awt.Font("Arial", 0, 14));
         jLabel58.setForeground(new java.awt.Color(102, 102, 102));
         jLabel58.setText("Results Data");
 
         jLabel59.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel59.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jLabel59.setFont(new java.awt.Font("Arial", 0, 16));
         jLabel59.setForeground(new java.awt.Color(102, 102, 102));
         jLabel59.setText("Document Outgoing List");
 
@@ -2672,7 +2641,7 @@ public final class ReceiveSubmitPage extends JFrame {
         jScrollPane12.setViewportView(jTableOutgoingList);
 
         jLabel60.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel60.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel60.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel60.setForeground(new java.awt.Color(51, 51, 51));
         jLabel60.setText("Result Data");
 
@@ -2682,7 +2651,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png"))); // NOI18N
+        jButton24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Search Property_22px.png")));
         jButton24.setText("Search");
         jButton24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2690,7 +2659,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Print_22px.png"))); // NOI18N
+        jButton27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Print_22px.png")));
         jButton27.setText("Print Data");
         jButton27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2698,7 +2667,7 @@ public final class ReceiveSubmitPage extends JFrame {
             }
         });
 
-        jButton28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Refresh_22px.png"))); // NOI18N
+        jButton28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Refresh_22px.png")));
         jButton28.setText("Refresh");
         jButton28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2865,7 +2834,7 @@ public final class ReceiveSubmitPage extends JFrame {
         jPanel43.add(jLabelView, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 366, 162, 20));
 
         jLabelPermission.setBackground(new java.awt.Color(102, 102, 102));
-        jLabelPermission.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabelPermission.setFont(new java.awt.Font("Arial", 0, 12));
         jLabelPermission.setForeground(new java.awt.Color(0, 153, 0));
         jLabelPermission.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelPermission.setText("(Employee)");
@@ -2886,24 +2855,24 @@ public final class ReceiveSubmitPage extends JFrame {
 
         jPanel7.setBackground(new java.awt.Color(0, 51, 102));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("DAVAO ORIENTAL STATE UNIVERSITY");
+        jLabel1.setText("NATIONAL INSTITUTE OF TECHNOLOGY AGARTALA");
 
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Person_48px.png"))); // NOI18N
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Person_48px.png")));
 
-        jLabel24.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Jonathan Cabrera");
 
-        jButtonLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/icons8_Exit_22px.png"))); // NOI18N
+        jButtonLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/icons8_Exit_22px.png")));
         jButtonLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLogoutActionPerformed(evt);
             }
         });
 
-        jLabel40.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel40.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel40.setForeground(new java.awt.Color(255, 255, 255));
         jLabel40.setText("Log-out");
 
@@ -2946,15 +2915,15 @@ public final class ReceiveSubmitPage extends JFrame {
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel8.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 73, 250, 10));
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Person_48px.png"))); // NOI18N
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Person_48px.png")));
         jPanel8.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 50, 51));
 
-        jLabelUsername.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabelUsername.setFont(new java.awt.Font("Arial", 0, 13));
         jLabelUsername.setForeground(new java.awt.Color(255, 255, 255));
         jLabelUsername.setText("dfkdfkdjfkdjfkd");
         jPanel8.add(jLabelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
 
-        jLabel20.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Arial", 0, 13));
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Logged in");
         jPanel8.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
@@ -2971,34 +2940,34 @@ public final class ReceiveSubmitPage extends JFrame {
         jPanel8.add(jTextFieldTracking, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 210, 33));
 
         jLabelTransactionHistoryMenuNumber.setBackground(new java.awt.Color(0, 102, 153));
-        jLabelTransactionHistoryMenuNumber.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabelTransactionHistoryMenuNumber.setFont(new java.awt.Font("Arial", 1, 11));
         jLabelTransactionHistoryMenuNumber.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTransactionHistoryMenuNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTransactionHistoryMenuNumber.setText("0");
         jPanel8.add(jLabelTransactionHistoryMenuNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 40, 20));
 
-        jLabelTransactionHistoryMenuCircle.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelTransactionHistoryMenuCircle.setFont(new java.awt.Font("Arial", 1, 18));
         jLabelTransactionHistoryMenuCircle.setForeground(new java.awt.Color(0, 102, 0));
         jLabelTransactionHistoryMenuCircle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTransactionHistoryMenuCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png"))); // NOI18N
+        jLabelTransactionHistoryMenuCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png")));
         jPanel8.add(jLabelTransactionHistoryMenuCircle, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 440, 40, 40));
 
         jLabelTrackingPageMenuNumber.setBackground(new java.awt.Color(0, 102, 153));
-        jLabelTrackingPageMenuNumber.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabelTrackingPageMenuNumber.setFont(new java.awt.Font("Arial", 1, 11));
         jLabelTrackingPageMenuNumber.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTrackingPageMenuNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTrackingPageMenuNumber.setText("0");
         jPanel8.add(jLabelTrackingPageMenuNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 40, 20));
 
-        jLabelTrackingPageMenuCircle.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelTrackingPageMenuCircle.setFont(new java.awt.Font("Arial", 1, 18));
         jLabelTrackingPageMenuCircle.setForeground(new java.awt.Color(0, 102, 0));
         jLabelTrackingPageMenuCircle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTrackingPageMenuCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png"))); // NOI18N
+        jLabelTrackingPageMenuCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png")));
         jPanel8.add(jLabelTrackingPageMenuCircle, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 40, 40));
 
-        jButtonTransactionHistoryV.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jButtonTransactionHistoryV.setFont(new java.awt.Font("Arial", 0, 13));
         jButtonTransactionHistoryV.setForeground(new java.awt.Color(51, 51, 51));
-        jButtonTransactionHistoryV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/viewDocument.png"))); // NOI18N
+        jButtonTransactionHistoryV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/viewDocument.png")));
         jButtonTransactionHistoryV.setText("Transaction History");
         jButtonTransactionHistoryV.setAlignmentY(0.0F);
         jButtonTransactionHistoryV.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -3010,9 +2979,9 @@ public final class ReceiveSubmitPage extends JFrame {
         });
         jPanel8.add(jButtonTransactionHistoryV, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 190, 40));
 
-        jButtonHomeV.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jButtonHomeV.setFont(new java.awt.Font("Arial", 0, 13));
         jButtonHomeV.setForeground(new java.awt.Color(51, 51, 51));
-        jButtonHomeV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/home.png"))); // NOI18N
+        jButtonHomeV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/home.png")));
         jButtonHomeV.setText("Home");
         jButtonHomeV.setAlignmentY(0.0F);
         jButtonHomeV.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -3024,9 +2993,9 @@ public final class ReceiveSubmitPage extends JFrame {
         });
         jPanel8.add(jButtonHomeV, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 190, 40));
 
-        jButtonTrackingPageV.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jButtonTrackingPageV.setFont(new java.awt.Font("Arial", 0, 13));
         jButtonTrackingPageV.setForeground(new java.awt.Color(51, 51, 51));
-        jButtonTrackingPageV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/ViewDetails.png"))); // NOI18N
+        jButtonTrackingPageV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/ViewDetails.png")));
         jButtonTrackingPageV.setText("Tracking Page");
         jButtonTrackingPageV.setAlignmentY(0.0F);
         jButtonTrackingPageV.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -3040,47 +3009,47 @@ public final class ReceiveSubmitPage extends JFrame {
         jPanel8.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 132, 250, 10));
 
         jLabelIncomingMenuNumber.setBackground(new java.awt.Color(0, 102, 153));
-        jLabelIncomingMenuNumber.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabelIncomingMenuNumber.setFont(new java.awt.Font("Arial", 1, 11));
         jLabelIncomingMenuNumber.setForeground(new java.awt.Color(255, 255, 255));
         jLabelIncomingMenuNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelIncomingMenuNumber.setText("0");
         jPanel8.add(jLabelIncomingMenuNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 40, 20));
 
-        jLabelIncomingMenuCircle.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelIncomingMenuCircle.setFont(new java.awt.Font("Arial", 1, 18));
         jLabelIncomingMenuCircle.setForeground(new java.awt.Color(0, 102, 0));
         jLabelIncomingMenuCircle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelIncomingMenuCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png"))); // NOI18N
+        jLabelIncomingMenuCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png")));
         jPanel8.add(jLabelIncomingMenuCircle, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 40, 40));
 
         jLabelPendingMenuNumber.setBackground(new java.awt.Color(0, 102, 153));
-        jLabelPendingMenuNumber.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabelPendingMenuNumber.setFont(new java.awt.Font("Arial", 1, 11));
         jLabelPendingMenuNumber.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPendingMenuNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelPendingMenuNumber.setText("0");
         jPanel8.add(jLabelPendingMenuNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 40, 20));
 
-        jLabelPendingMenuCircle.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelPendingMenuCircle.setFont(new java.awt.Font("Arial", 1, 18));
         jLabelPendingMenuCircle.setForeground(new java.awt.Color(0, 102, 0));
         jLabelPendingMenuCircle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelPendingMenuCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png"))); // NOI18N
+        jLabelPendingMenuCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png")));
         jPanel8.add(jLabelPendingMenuCircle, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 40, 40));
 
         jLabelOutgoingMenuNumber.setBackground(new java.awt.Color(0, 102, 153));
-        jLabelOutgoingMenuNumber.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabelOutgoingMenuNumber.setFont(new java.awt.Font("Arial", 1, 11));
         jLabelOutgoingMenuNumber.setForeground(new java.awt.Color(255, 255, 255));
         jLabelOutgoingMenuNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelOutgoingMenuNumber.setText("0");
         jPanel8.add(jLabelOutgoingMenuNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 40, 20));
 
-        jLabelOutgoingMenuCircle.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelOutgoingMenuCircle.setFont(new java.awt.Font("Arial", 1, 18));
         jLabelOutgoingMenuCircle.setForeground(new java.awt.Color(0, 102, 0));
         jLabelOutgoingMenuCircle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelOutgoingMenuCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png"))); // NOI18N
+        jLabelOutgoingMenuCircle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/red Moon_32px.png")));
         jPanel8.add(jLabelOutgoingMenuCircle, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 40, 40));
 
-        jButtonOutgoingMenu.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jButtonOutgoingMenu.setFont(new java.awt.Font("Arial", 0, 13));
         jButtonOutgoingMenu.setForeground(new java.awt.Color(51, 51, 51));
-        jButtonOutgoingMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Outgoing Data_22px.png"))); // NOI18N
+        jButtonOutgoingMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Outgoing Data_22px.png")));
         jButtonOutgoingMenu.setText("Outgoing");
         jButtonOutgoingMenu.setAlignmentY(0.0F);
         jButtonOutgoingMenu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -3092,9 +3061,9 @@ public final class ReceiveSubmitPage extends JFrame {
         });
         jPanel8.add(jButtonOutgoingMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 190, 40));
 
-        jButtonPendingMenu.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jButtonPendingMenu.setFont(new java.awt.Font("Arial", 0, 13));
         jButtonPendingMenu.setForeground(new java.awt.Color(51, 51, 51));
-        jButtonPendingMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Pending_22px.png"))); // NOI18N
+        jButtonPendingMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Pending_22px.png")));
         jButtonPendingMenu.setText("Pending");
         jButtonPendingMenu.setAlignmentY(0.0F);
         jButtonPendingMenu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -3106,9 +3075,9 @@ public final class ReceiveSubmitPage extends JFrame {
         });
         jPanel8.add(jButtonPendingMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 190, 40));
 
-        jButtonIncomingMenu.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jButtonIncomingMenu.setFont(new java.awt.Font("Arial", 0, 13));
         jButtonIncomingMenu.setForeground(new java.awt.Color(51, 51, 51));
-        jButtonIncomingMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Incoming.png"))); // NOI18N
+        jButtonIncomingMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document_tracking_system/images/Incoming.png")));
         jButtonIncomingMenu.setText("Incoming");
         jButtonIncomingMenu.setAlignmentY(0.0F);
         jButtonIncomingMenu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -3124,11 +3093,11 @@ public final class ReceiveSubmitPage extends JFrame {
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12));
         jLabel4.setText("Document tracking system version 1.0");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setText("Copyright 2019 DOrSU all right reserve ");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12));
+        jLabel3.setText("Copyright 2023 all rights reserved");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -4031,7 +4000,7 @@ public final class ReceiveSubmitPage extends JFrame {
                         jComboBoxPermission.addItem("For Everyone");
                         jComboBoxPermission.setEnabled(false);
                     }
-                    if (jComboBoxField.getSelectedItem().toString().equalsIgnoreCase("School President")) {
+                    if (jComboBoxField.getSelectedItem().toString().equalsIgnoreCase("College President")) {
                         jComboBoxPermission.removeAllItems();
                         jComboBoxPermission.addItem("President");
                         jComboBoxPermission.setEnabled(false);
@@ -4057,7 +4026,7 @@ public final class ReceiveSubmitPage extends JFrame {
 
                     }
 
-                    if (jComboBoxField.getSelectedItem().toString().equalsIgnoreCase("School President")) {
+                    if (jComboBoxField.getSelectedItem().toString().equalsIgnoreCase("College President")) {
                         jComboBoxPermission.removeAllItems();
                         jComboBoxPermission.addItem("President");
                         jComboBoxPermission.setEnabled(false);
@@ -4084,7 +4053,7 @@ public final class ReceiveSubmitPage extends JFrame {
 
                     }
 
-                    if (jComboBoxField.getSelectedItem().toString().equalsIgnoreCase("School President")) {
+                    if (jComboBoxField.getSelectedItem().toString().equalsIgnoreCase("College President")) {
                         jComboBoxPermission.removeAllItems();
                         jComboBoxPermission.addItem("President");
                         jComboBoxPermission.setEnabled(false);
@@ -4131,7 +4100,7 @@ public final class ReceiveSubmitPage extends JFrame {
                         jComboBoxPermission.addItem("Dean of ICE");
                         jComboBoxPermission.addItem("Dean of IETT");
 
-                        jComboBoxPermission.addItem("Graduate School Coordinator");
+                        jComboBoxPermission.addItem("Graduate College Coordinator");
                         jComboBoxPermission.addItem("Coordinator of NSTP");
                         jComboBoxPermission.addItem("Director for Instructor");
                         jComboBoxPermission.addItem("Director for Student Service");
@@ -4326,10 +4295,10 @@ public final class ReceiveSubmitPage extends JFrame {
                         } else {
                             jComboBoxPermission.addItem("Office of Student and Affairs");
                         }
-                        if (("Office of Graduate School Coordinator".equals(jLabelPermission.getText()))) {
-                            jComboBoxPermission.removeItem("Office of Graduate School Coordinator");
+                        if (("Office of Graduate College Coordinator".equals(jLabelPermission.getText()))) {
+                            jComboBoxPermission.removeItem("Office of Graduate College Coordinator");
                         } else {
-                            jComboBoxPermission.addItem("Office of Graduate School Coordinator");
+                            jComboBoxPermission.addItem("Office of Graduate College Coordinator");
                         }
                         if (("Office of Coordinator of NSTP".equals(jLabelPermission.getText()))) {
                             jComboBoxPermission.removeItem("Office of Coordinator of NSTP");

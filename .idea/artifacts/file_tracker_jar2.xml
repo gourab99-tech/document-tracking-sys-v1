@@ -1,0 +1,58 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="file-tracker:jar2">
+    <output-path>$PROJECT_DIR$/out/artifacts/file_tracker_jar2</output-path>
+    <root id="root">
+      <element id="module-output" name="file-tracker" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/documentTrackingSystemV.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/icu4j-57.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/lucene-queries-4.5.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/spring-expression-3.0.6.RELEASE.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/lucene-analyzers-common-4.5.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/spring-context-3.0.6.RELEASE.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/core-2.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/jasperreports-6.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/spring-asm-3.0.6.RELEASE.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/jackson-annotations-2.1.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/AbsoluteLayout.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/bcprov-jdk14-1.38.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/jfreechart-1.0.19.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/olap4j-0.9.7.309-JS-3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/mysql-connector-java-5.1.48-bin.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/castor-xml-1.3.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/bcprov-jdk14-138.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/jackson-core-2.1.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/mysql-connector-java-5.1.23-bin.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/bcmail-jdk14-138.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/javax.persistence_2.1.0.v201304241213.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/commons-beanutils-1.9.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/itext-2.1.7.js5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/commons-digester-2.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/aopalliance-1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/ecj-4.3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/spring-aop-3.0.6.RELEASE.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/jar_files.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/stax-1.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/stax-api-1.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/ConnectCodeTrialSetup.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/spring-core-3.0.6.RELEASE.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/jackson-databind-2.1.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/lucene-sandbox-4.5.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/commons-lang-2.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/commons-logging-1.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/bctsp-jdk14-1.38.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/javax.inject-1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/lucene-core-4.5.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/bcmail-jdk14-1.38.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/stax-api-1.0-2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/jakarta-regexp-1.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/castor-core-1.3.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/jcommon-1.0.23.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/spring-beans-3.0.6.RELEASE.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/commons-collections-3.2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/eclipselink.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/mysql-connector-java-5.1.48.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/documentTracking/dist/lib/lucene-queryparser-4.5.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
